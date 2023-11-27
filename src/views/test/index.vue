@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { formatTree } from '@/modules/simple-utils';
+import { formatTree } from 'complex-utils';
 import { defineComponent } from 'vue';
 
 const list = [
