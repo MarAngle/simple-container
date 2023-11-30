@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "ant-design-vue": "^4.0.6",
-    "complex-utils": "2.0.5 - 2.0.99",
-    "complex-plugin": "4.0.0 - 4.0.99",
-    "complex-request-axios": "0.1.3 - 0.1.99",
+    "complex-utils": "2.0.7 - 2.0.99",
+    "complex-plugin": "4.0.1 - 4.0.99",
+    "complex-request-axios": "0.1.4 - 0.1.99",
+    "complex-data": "4.0.1 - 4.0.99",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
