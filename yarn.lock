@@ -2698,12 +2698,12 @@ commondir@^1.0.1:
     complex-data "4.0.8 - 4.0.99"
     complex-plugin "4.0.1 - 4.0.99"
 
-"complex-data@4.0.10 - 4.0.99", "complex-data@4.0.8 - 4.0.99":
-  version "4.0.10"
-  resolved "https://registry.yarnpkg.com/complex-data/-/complex-data-4.0.10.tgz#9bee51f1cb183f969a785119bc9a3e49241d9592"
-  integrity sha512-Fr65f67yEZHEwiCQ8YsKrseeMKBEMSok5h11FD64Go3maEvp8dyH5iCvcvlFaCW3egtbvFIUSxP+1UnwzBTFaQ==
+"complex-data@4.0.11 - 4.0.99", "complex-data@4.0.8 - 4.0.99":
+  version "4.0.11"
+  resolved "https://registry.yarnpkg.com/complex-data/-/complex-data-4.0.11.tgz#19d4caac12a1777ccf30b5489bb49e4c27ea6f64"
+  integrity sha512-neV2fPgSGeYCfm3DdYEh8sWITGPs4hqieXxjeXWYx2aNn8HmTkfVNnl5JVz+XZb2A+kK3eCLEmL8FsCvbCKL8g==
   dependencies:
-    complex-utils "2.0.8 - 2.0.99"
+    complex-utils "2.0.9 - 2.0.99"
 
 "complex-plugin@4.0.1 - 4.0.99":
   version "4.0.1"
@@ -2727,10 +2727,10 @@ commondir@^1.0.1:
   dependencies:
     complex-plugin "4.0.1 - 4.0.99"
 
-"complex-utils@2.0.7 - 2.0.99", "complex-utils@2.0.8 - 2.0.99":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/complex-utils/-/complex-utils-2.0.8.tgz#e482511596905e1dd8cb1a3be97b7b0e49ecc96b"
-  integrity sha512-vPSFLx2Q7QiPrPW108wCHnFa8e0N4NvyRReoQ51M2v2Cvtte4+nHHBXm7C5xPK1ru53rbXrqLu7E8JlKRgS16A==
+"complex-utils@2.0.7 - 2.0.99", "complex-utils@2.0.9 - 2.0.99":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/complex-utils/-/complex-utils-2.0.9.tgz#26477fb52e114fdc72bece0c231cc57ee1f9201d"
+  integrity sha512-4Gq5n+pIDqXdN6v8qFArT7S+QTdIPjIRLv4cKMVsuzWBW/ddPXO2y6uYkm7rFKgNJ6LYZUJdLf4zfzJTgxk6UQ==
 
 compressible@~2.0.16:
   version "2.0.18"
