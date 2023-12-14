@@ -24,7 +24,8 @@ const request = new AxiosRequest({
           },
           Authorization: {
             require: true,
-            location: 'header'
+            location: 'header',
+            value: 'authorization'
           },
           'X-Token-Issuer': {
             require: true,
@@ -53,7 +54,7 @@ const request = new AxiosRequest({
       refresh() {
         return Promise.reject({ status: 'fail' })
       },
-      format (response: any) {
+      format (response) {
         const res: responseType = {
           status: 'fail'
         } as responseType
