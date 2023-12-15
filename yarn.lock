@@ -2698,12 +2698,12 @@ commondir@^1.0.1:
     complex-data "4.0.8 - 4.0.99"
     complex-plugin "4.0.1 - 4.0.99"
 
-"complex-data@4.0.11 - 4.0.99", "complex-data@4.0.8 - 4.0.99":
-  version "4.0.11"
-  resolved "https://registry.yarnpkg.com/complex-data/-/complex-data-4.0.11.tgz#19d4caac12a1777ccf30b5489bb49e4c27ea6f64"
-  integrity sha512-neV2fPgSGeYCfm3DdYEh8sWITGPs4hqieXxjeXWYx2aNn8HmTkfVNnl5JVz+XZb2A+kK3eCLEmL8FsCvbCKL8g==
+"complex-data@4.0.12 - 4.0.99", "complex-data@4.0.8 - 4.0.99":
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/complex-data/-/complex-data-4.0.12.tgz#8fa0de1416dfc9dec0d72d6e82e010ab0ed713d0"
+  integrity sha512-Agn/0iSc4ydtCI3awvp0/yQe0LoniMMuHUtFWAGcLQg/wRsmNGUIx7jomY6p2X0FfQ9A0pFB9PcbUVx0qwK95w==
   dependencies:
-    complex-utils "2.0.9 - 2.0.99"
+    complex-utils "2.0.10 - 2.0.99"
 
 "complex-plugin@4.0.1 - 4.0.99", "complex-plugin@4.0.2 - 4.0.99":
   version "4.0.2"
@@ -2727,7 +2727,7 @@ commondir@^1.0.1:
   dependencies:
     complex-plugin "4.0.2 - 4.0.99"
 
-"complex-utils@2.0.10 - 2.0.99", "complex-utils@2.0.9 - 2.0.99":
+"complex-utils@2.0.10 - 2.0.99":
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/complex-utils/-/complex-utils-2.0.10.tgz#ddd01870f28239a87eb11972f960aa5d9c701636"
   integrity sha512-bVxFWa9EJF/yvHZzpWioai4Iv8xMeZX6MvK7RM9xcYhDOlhfX6SCxhttgcxTqgVDddEdju7brq7W7iPren+ddw==
@@ -3224,9 +3224,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.601:
-  version "1.4.612"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.612.tgz#350c6fd4201d677307519b931949fa64dae6a5cc"
-  integrity sha512-dM8BMtXtlH237ecSMnYdYuCkib2QHq0kpWfUnavjdYsyr/6OsAwg5ZGUfnQ9KD1Ga4QgB2sqXlB2NT8zy2GnVg==
+  version "1.4.613"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.613.tgz#529e4fc65576ecfd055d7d4619fade4fac446af2"
+  integrity sha512-r4x5+FowKG6q+/Wj0W9nidx7QO31BJwmR2uEo+Qh3YLGQ8SbBAFuDFpTxzly/I2gsbrFwBuIjrMp423L3O5U3w==
 
 emoji-regex@^8.0.0:
   version "8.0.0"

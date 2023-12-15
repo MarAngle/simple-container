@@ -1,5 +1,26 @@
 import request from "@/simple/request";
-import { ComplexList } from "complex-data";
+import { ComplexList, SelectValue } from "complex-data";
+
+const select = new SelectValue({
+  list: [
+    {
+      value: 0,
+      label: '未处理'
+    },
+    {
+      value: 1,
+      label: '处理中'
+    },
+    {
+      value: 2,
+      label: '已完成'
+    },
+    {
+      value: 1,
+      label: '已关闭'
+    },
+  ]
+})
 
 const mainData = new ComplexList({
   prop: 'mainData',
@@ -29,13 +50,20 @@ const mainData = new ComplexList({
           name: '故障地址',
           mod: {
             list: {
-              width: 100
+              width: 200
             }
           }
         },
         {
           prop: 'recordProcessingStatus',
           name: '处理状态',
+          showProp: {
+            default: 'value',
+            list: 'label'
+          },
+          format(value) {
+            return select.get(value)
+          },
           mod: {
             list: {
               width: 100
@@ -64,8 +92,7 @@ const mainData = new ComplexList({
           limit: 15
         }
       }).then(res => {
-        this.$formatList(res.data.data)
-        console.log(this.$list)
+        this.$formatList(res.data.data[2])
         resolve(res)
       }).catch(err => {
         console.log(err)
