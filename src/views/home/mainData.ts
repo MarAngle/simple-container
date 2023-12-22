@@ -42,6 +42,18 @@ const mainData = new ComplexList({
           mod: {
             list: {
               width: 100
+            },
+            edit: {
+              type: 'input',
+              option: {
+                size: 4
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
             }
           }
         },
@@ -51,6 +63,18 @@ const mainData = new ComplexList({
           mod: {
             list: {
               width: 200
+            },
+            edit: {
+              type: 'input',
+              option: {
+                size: 4
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
             }
           }
         },
@@ -67,12 +91,45 @@ const mainData = new ComplexList({
           mod: {
             list: {
               width: 100
+            },
+            edit: {
+              type: 'select',
+              option: {
+                list: select.getList()
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
             }
           }
         },
         {
           prop: 'recordTimeRelease',
           name: '时间',
+          mod: {
+            list: {
+              width: 100
+            },
+            edit: {
+              type: 'date',
+              option: {
+                time: {}
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
+        {
+          prop: 'menu',
+          name: '操作',
           mod: {
             list: {
               width: 100
@@ -101,7 +158,5 @@ const mainData = new ComplexList({
     })
   }
 })
-
-console.log(mainData)
 
 export default mainData
