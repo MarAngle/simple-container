@@ -5,6 +5,7 @@ import { setEnv } from 'complex-utils'
 import { install } from 'complex-plugin'
 import { Data } from 'complex-data'
 import { noticeMsgType } from 'complex-plugin/src/notice'
+import '@/modules/complex-component-antd/init'
 
 setEnv(process.env.NODE_ENV)
 setEnv(process.env.NODE_ENV, 'real')

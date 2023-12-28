@@ -25,6 +25,50 @@ const select = new SelectValue({
 const mainData = new ComplexList({
   prop: 'mainData',
   module: {
+    search: {
+      menu: {},
+      list: [
+        {
+          prop: 'vin',
+          name: 'VIN',
+          mod: {
+            search: {
+              $format: 'edit',
+              type: 'input',
+              option: {
+                size: 20
+              }
+            }
+          }
+        },
+        {
+          prop: 'svin',
+          name: 'sVIN',
+          mod: {
+            search: {
+              $format: 'edit',
+              type: 'input',
+              option: {
+                size: 20
+              }
+            }
+          }
+        },
+        {
+          prop: 'evin',
+          name: 'eVIN',
+          mod: {
+            search: {
+              $format: 'edit',
+              type: 'input',
+              option: {
+                size: 20
+              }
+            }
+          }
+        },
+      ]
+    },
     dictionary: {
       list: [
         {
@@ -33,6 +77,19 @@ const mainData = new ComplexList({
           mod: {
             list: {
               width: 100
+            },
+            edit: {
+              type: 'input',
+              required: true,
+              option: {
+                size: 20
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
             }
           }
         },
@@ -45,8 +102,9 @@ const mainData = new ComplexList({
             },
             edit: {
               type: 'input',
+              required: true,
               option: {
-                size: 4
+                size: 20
               }
             },
             build: {
@@ -66,8 +124,9 @@ const mainData = new ComplexList({
             },
             edit: {
               type: 'input',
+              required: true,
               option: {
-                size: 4
+                size: 20
               }
             },
             build: {
@@ -94,6 +153,7 @@ const mainData = new ComplexList({
             },
             edit: {
               type: 'select',
+              required: true,
               option: {
                 list: select.getList()
               }
@@ -115,6 +175,7 @@ const mainData = new ComplexList({
             },
             edit: {
               type: 'date',
+              required: true,
               option: {
                 time: {}
               }
@@ -155,6 +216,28 @@ const mainData = new ComplexList({
         console.log(err)
         reject(err)
       })
+    })
+  },
+  buildData(this: ComplexList, targetData) {
+    return new Promise((resolve) => {
+      console.log(targetData)
+      setTimeout(() => {
+        this.$list.push(this.$createDataByDictionary(targetData))
+        resolve({})
+      }, 1000)
+    })
+  },
+  changeData(this: ComplexList, targetData, originData) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        targetData = this.$createDataByDictionary(targetData)
+        const index = this.$list.indexOf(originData)
+        this.$list.splice(index, 1, {
+          ...originData,
+          ...targetData
+        })
+        resolve({})
+      }, 1000)
     })
   }
 })
