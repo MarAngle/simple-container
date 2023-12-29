@@ -1,5 +1,13 @@
 import request from "@/simple/request";
 import { ComplexList, SelectValue } from "complex-data";
+// import { notice } from "complex-plugin";
+
+// notice.confirm('confirm', '456', (act) => {
+//   console.log(act)
+// })
+// notice._alert('alert', '456', (act) => {
+//   console.log(act)
+// })
 
 const select = new SelectValue({
   list: [
@@ -25,8 +33,24 @@ const select = new SelectValue({
 const mainData = new ComplexList({
   prop: 'mainData',
   module: {
+    choice: {},
     search: {
-      menu: {},
+      menu: {
+        list: [
+          {
+            type: 'primary',
+            name: '新增',
+            icon: 'plus',
+            prop: 'build',
+          },
+          {
+            type: 'danger',
+            name: '删除',
+            icon: 'delete',
+            prop: 'delete',
+          },
+        ]
+      },
       list: [
         {
           prop: 'vin',
@@ -70,6 +94,9 @@ const mainData = new ComplexList({
       ]
     },
     dictionary: {
+      propData: {
+        id: 'vin'
+      },
       list: [
         {
           prop: 'vin',
@@ -198,10 +225,12 @@ const mainData = new ComplexList({
           }
         },
       ]
-    }
+    },
+    pagination: true
   },
   getData(this: ComplexList) {
     return new Promise((resolve, reject) => {
+      console.log(this.getSearch())
       request.post({
         url: 'vehicle/warning/digital/screen/getWarningList',
         data: {
@@ -210,7 +239,7 @@ const mainData = new ComplexList({
           limit: 15
         }
       }).then(res => {
-        this.$formatList(res.data.data[2])
+        this.formatList(res.data.data[2], 100)
         resolve(res)
       }).catch(err => {
         console.log(err)
@@ -222,7 +251,7 @@ const mainData = new ComplexList({
     return new Promise((resolve) => {
       console.log(targetData)
       setTimeout(() => {
-        this.$list.push(this.$createDataByDictionary(targetData))
+        this.$list.push(this.createDataByDictionary(targetData))
         resolve({})
       }, 1000)
     })
@@ -230,11 +259,31 @@ const mainData = new ComplexList({
   changeData(this: ComplexList, targetData, originData) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        targetData = this.$createDataByDictionary(targetData)
+        targetData = this.createDataByDictionary(targetData)
         const index = this.$list.indexOf(originData)
         this.$list.splice(index, 1, {
           ...originData,
           ...targetData
+        })
+        resolve({})
+      }, 1000)
+    })
+  },
+  deleteData(this: ComplexList, targetData) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const index = this.$list.indexOf(targetData)
+        this.$list.splice(index, 1)
+        resolve({})
+      }, 1000)
+    })
+  },
+  multipleDeleteData(this: ComplexList, choiceList) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        choiceList.forEach(item => {
+          const index = this.$list.indexOf(item)
+          this.$list.splice(index, 1)
         })
         resolve({})
       }, 1000)

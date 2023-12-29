@@ -1,6 +1,17 @@
 <template>
   <div class="home">
-    <ComplexListView :list-data="mainData" />
+    <ComplexListView :list-data="mainData" :menu="{
+      table: [
+        {
+          prop: 'change',
+          name: '编辑'
+        },
+        {
+          prop: 'delete',
+          name: '删除'
+        },
+      ]
+    }" />
   </div>
 </template>
 
@@ -20,7 +31,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.mainData.$loadData(true)
+    this.mainData.loadData(true)
   },
   methods: {
   }

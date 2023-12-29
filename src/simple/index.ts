@@ -42,7 +42,22 @@ install({
             next('ok')
           }
         }
-      }, 'error')
+      }, 'warning')
+    },
+    _alert: function (content: string, title = '警告', next?: (act: string) => void, okText = '确认') {
+      const modal = this.setModal({
+        title: title,
+        content: content,
+        okText: okText,
+        onOk: function () {
+          console.log(modal)
+          if (next) {
+            next('ok')
+          }
+          // modal.destroy()
+          return Promise.resolve()
+        }
+      }, 'warning')
     },
     confirm: function (content: string, title = '警告', next?: (act: string) => void, okText = '确认', cancelText = '取消') {
       this.setModal({
@@ -50,25 +65,29 @@ install({
         content: content,
         okText: okText,
         cancelText: cancelText,
-        onCancel: function () {
+        onCancel: function (close: () => void) {
+          console.log(close)
           if (next) {
             next('cancel')
           }
+          close()
         },
-        onOk: function () {
+        onOk: function (close: () => void) {
+          console.log(close)
           if (next) {
             next('ok')
           }
+          close()
         }
       }, 'confirm')
     },
     setModal: function (option: ModalProps, type = 'info') {
       if (Modal[type]) {
-        Modal[type](option)
+        return Modal[type](option)
       } else {
         // eslint-disable-next-line no-console
         console.error('modal type is not defined, type reset info')
-        Modal.info(option)
+        return Modal.info(option)
       }
     }
   }
