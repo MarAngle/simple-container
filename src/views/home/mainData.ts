@@ -37,18 +37,34 @@ const mainData = new ComplexList({
     search: {
       menu: {
         list: [
+          'build',
+          'delete',
           {
-            type: 'primary',
-            name: '新增',
-            icon: 'plus',
-            prop: 'build',
+            type: 'default',
+            name: '测试已选择2条时可用',
+            prop: 'choice2',
+            choice: 2,
+            click: () => {
+              return new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve({})
+                }, 2000)
+              })
+            }
           },
           {
-            type: 'danger',
-            name: '删除',
-            icon: 'delete',
-            prop: 'delete',
-          },
+            type: 'default',
+            name: '导入',
+            prop: 'import',
+            icon: 'upload',
+            upload: (file) => {
+              return new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve({})
+                }, 3000)
+              })
+            }
+          }
         ]
       },
       list: [
@@ -155,6 +171,39 @@ const mainData = new ComplexList({
               option: {
                 size: 20
               }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
+        {
+          prop: 'url',
+          name: '文件',
+          mod: {
+            edit: {
+              type: 'file',
+              required: true
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
+        {
+          prop: 'multipleUrl',
+          name: '多文件',
+          mod: {
+            edit: {
+              type: 'file',
+              multiple: true,
+              required: true
             },
             build: {
               $redirect: 'edit'
@@ -286,7 +335,7 @@ const mainData = new ComplexList({
           this.$list.splice(index, 1)
         })
         resolve({})
-      }, 1000)
+      }, 3000)
     })
   }
 })

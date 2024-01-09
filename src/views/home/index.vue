@@ -1,16 +1,22 @@
 <template>
   <div class="home">
-    <ComplexListView :list-data="mainData" :menu="{
-      table: [
-        {
-          prop: 'change',
-          name: '编辑'
-        },
-        {
-          prop: 'delete',
-          name: '删除'
-        },
-      ]
+    <ComplexListView :list-data="mainData" :simple-table="true" :components-props="{
+      table: {
+        menu: {
+          menu: [
+            {
+              prop: 'change',
+              name: '编辑',
+              color: 'link'
+            },
+            {
+              prop: 'delete',
+              name: '删除',
+              color: 'danger'
+            },
+          ]
+        }
+      }
     }" />
   </div>
 </template>
