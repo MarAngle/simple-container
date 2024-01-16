@@ -7,8 +7,8 @@ import { Data } from 'complex-data'
 import { noticeMsgType } from 'complex-plugin/src/notice'
 import '@/modules/complex-component-antd/init'
 
-// setEnv(process.env.NODE_ENV)
-// setEnv(process.env.NODE_ENV, 'real')
+setEnv(import.meta.env.VITE_APP_ENV)
+setEnv(import.meta.env.VITE_APP_ENV, 'real')
 
 Data.$format = function(data) {
   return reactive(data)
@@ -37,25 +37,11 @@ install({
         title: title,
         content: content,
         okText: okText,
-        onOk: function () {
+        onOk: function (close: () => void) {
           if (next) {
             next('ok')
           }
-        }
-      }, 'warning')
-    },
-    _alert: function (content: string, title = '警告', next?: (act: string) => void, okText = '确认') {
-      const modal = this.setModal({
-        title: title,
-        content: content,
-        okText: okText,
-        onOk: function () {
-          console.log(modal)
-          if (next) {
-            next('ok')
-          }
-          // modal.destroy()
-          return Promise.resolve()
+          close()
         }
       }, 'warning')
     },
@@ -66,14 +52,12 @@ install({
         okText: okText,
         cancelText: cancelText,
         onCancel: function (close: () => void) {
-          console.log(close)
           if (next) {
             next('cancel')
           }
           close()
         },
         onOk: function (close: () => void) {
-          console.log(close)
           if (next) {
             next('ok')
           }
