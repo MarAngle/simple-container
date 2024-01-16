@@ -1,7 +1,7 @@
 {
   "name": "simple-container",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "pre": "yarn install --registry https://registry.yarnpkg.com || npm install --registry https://registry.npm.taobao.org",
