@@ -1,7 +1,7 @@
 import { NavigationGuardNext, RouteLocationRaw } from 'vue-router'
 import router from '../router'
-import loginData from '../data/login'
-import dependData from '../data/depend'
+import loginData from '../data/loginData'
+import dependData from '../data/dependData'
 
 export const loginPath = ['/login']
 export const whitePath = ['/404'].concat(loginPath)
