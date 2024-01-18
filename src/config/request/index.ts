@@ -1,11 +1,11 @@
-import { AxiosResponse } from 'axios'
+import { AxiosResponse, AxiosRequestConfig } from 'axios'
 import { responseType } from "complex-request/src/Rule";
 import { RequestConfig } from 'complex-request/src/BaseRequest'
 import { AxiosRequest } from "complex-request-axios";
 
 const currentUrl = 'https://gateway-test.wuzheng.com.cn/'
 
-export type requestConfig = RequestConfig<AxiosResponse>
+export type RequestConfigType = RequestConfig<AxiosResponse, AxiosRequestConfig>
 
 const request = new AxiosRequest({
   baseUrl: currentUrl,
@@ -14,11 +14,6 @@ const request = new AxiosRequest({
       prop: 'default',
       token: {
         data: {
-          sign: {
-            require: true,
-            location: 'params',
-            value: 'sign'
-          },
           timestamp: {
             require: true,
             location: 'params',
@@ -30,18 +25,6 @@ const request = new AxiosRequest({
             require: true,
             location: 'header',
             value: 'authorization'
-          },
-          'X-Token-Issuer': {
-            require: true,
-            location: 'header',
-            value: 'common-console'
-          },
-          'X-Request-Id': {
-            require: true,
-            location: 'header',
-            getValue: function () {
-              return Date.now()
-            }
           }
         }
       },
@@ -67,11 +50,7 @@ const request = new AxiosRequest({
           if (response.data.result === 'SUCCEED') {
             res.status = 'success'
             res.msg = response.data.errorMessage
-          } else if (response.data.errorCode === '000031' || response.data.errorCode === '000032') {
-            res.status = 'login'
-            res.code = response.data.errorCode
-            res.msg = response.data.errorMessage
-          } else if (response.data.errorCode === 'N1000' || response.data.errorCode === 'N1009') {
+          } else if (response.data.result === 'LOGIN') {
             res.status = 'login'
             res.code = response.data.errorCode
             res.msg = response.data.errorMessage

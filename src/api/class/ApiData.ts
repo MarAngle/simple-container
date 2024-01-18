@@ -1,10 +1,11 @@
+import { AxiosResponse } from 'axios'
 import { getEnv, isCompleteUrl } from 'complex-utils'
 import { responseType } from 'complex-request/src/Rule'
 import { Data } from 'complex-data'
-import request, { requestConfig } from '@/config/request'
+import request, { RequestConfigType } from '@/config/request'
 
-export type requestConfigKeys = keyof requestConfig
-export type requestConfigKeysWithInherit = requestConfigKeys | 'inherit'
+export type RequestConfigTypeKeys = keyof RequestConfigType
+export type RequestConfigTypeKeysWithInherit = RequestConfigTypeKeys | 'inherit'
 
 export interface apiType {
   pre?: string
@@ -15,17 +16,17 @@ const mockConfig =  getEnv('real') === 'development'
 
 export type mockType<R extends responseType = responseType> = {
   trigger?: boolean | 'force'
-  data: ((requireConfig: Partial<requestConfig>) => R['data'])
+  data: ((requestConfig: Partial<RequestConfigType>) => R['data'])
 }
 
 export interface ApitDataInitOption<R extends responseType = responseType> {
   name: string
   url: string
-  token?: requestConfig['token']
+  token?: RequestConfigType['token']
   api?: apiType
-  method?: requestConfig['method']
-  data?: requestConfigKeysWithInherit[]
-  format?: requestConfig['format']
+  method?: RequestConfigType['method']
+  data?: RequestConfigTypeKeysWithInherit[]
+  format?: RequestConfigType['format']
   mock?: mockType<R>
 }
 
@@ -43,7 +44,7 @@ function formatApi (url: string, api?: apiType) {
   return url
 }
 
-function appendProp (requireData: Partial<requestConfig>, propList: requestConfigKeys[], args: unknown[]) {
+function appendProp (requireData: Partial<RequestConfigType>, propList: RequestConfigTypeKeys[], args: unknown[]) {
   if (propList && propList.length > 0 && args && args.length > 0) {
     for (let i = 0; i < propList.length; i++) {
       const prop = propList[i]
@@ -64,11 +65,11 @@ const getTypeList = [undefined, 'get', 'delete']
 class ApiData<A extends unknown[] = unknown[], R extends responseType = responseType> extends Data {
   name: string
   url: string
-  token?: requestConfig['token']
+  token?: RequestConfigType['token']
   api?: apiType
-  method?: requestConfig['method']
-  data: requestConfigKeys[]
-  format?: requestConfig['format']
+  method?: RequestConfigType['method']
+  data: RequestConfigTypeKeys[]
+  format?: RequestConfigType['format']
   mock?: mockType<R>['data']
   constructor(initOption: ApitDataInitOption<R>) {
     super()
@@ -94,17 +95,19 @@ class ApiData<A extends unknown[] = unknown[], R extends responseType = response
   }
   require(...args: A): Promise<R> {
     const url = formatApi(this.url, this.api)
-    const requireConfig: Partial<requestConfig> = {
+    const requestConfig: Partial<RequestConfigType> = {
       url: url,
       method: this.method,
       token: this.token,
       format: this.format
     }
-    appendProp(requireConfig, this.data, args)
+    appendProp(requestConfig, this.data, args)
     if (!this.mock) {
-      return request.request(requireConfig) as Promise<R>
+      return request.request(requestConfig) as Promise<R>
     }
-    return Promise.resolve(this.mock(requireConfig))
+    // 准备模拟请求
+    requestConfig.url = request.formatUrl(requestConfig.url!)
+    return Promise.resolve(request.$getRule(requestConfig.url)!.format({ data: this.mock(requestConfig) } as AxiosResponse, requestConfig as RequestConfigType)) as Promise<R>
   }
 }
 

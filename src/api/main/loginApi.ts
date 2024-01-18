@@ -12,7 +12,9 @@ export type loginApiArg = {
   account: string
   password: string
 }
-export type loginApiRes = responseType<userInfo>
+export type loginApiRes = responseType<{
+  data: userInfo
+}>
 
 const loginApi = new ApiData<[loginApiArg], loginApiRes>({
   name: '登录',
@@ -28,10 +30,13 @@ const loginApi = new ApiData<[loginApiArg], loginApiRes>({
     trigger: 'force',
     data () {
       return {
-        id: 1,
-        account: 'account',
-        name: 'mock',
-        avatar: undefined
+        result: 'SUCCEED',
+        data: {
+          id: 1,
+          account: 'account',
+          name: 'mock',
+          avatar: undefined
+        }
       }
     }
   },
