@@ -12,7 +12,6 @@ const loginData = new LoginData({
   prop: 'loginData',
   getData() {
     return new Promise((resolve, reject) => {
-      console.log(1)
       setTimeout(() => {
         resolve({})
       }, 200)

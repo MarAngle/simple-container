@@ -1,7 +1,11 @@
-import { responseType } from "@/modules/complex-request/src/Rule";
+import { AxiosResponse } from 'axios'
+import { responseType } from "complex-request/src/Rule";
+import { RequestConfig } from 'complex-request/src/BaseRequest'
 import { AxiosRequest } from "complex-request-axios";
 
 const currentUrl = 'https://gateway-test.wuzheng.com.cn/'
+
+export type requestConfig = RequestConfig<AxiosResponse>
 
 const request = new AxiosRequest({
   baseUrl: currentUrl,
