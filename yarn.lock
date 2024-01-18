@@ -248,9 +248,9 @@
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
 "@types/node@^20.11.3":
-  version "20.11.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.4.tgz#c724a5d6723182af758b91b994209336f4439cb7"
-  integrity sha512-6I0fMH8Aoy2lOejL3s4LhyIYX34DPwY8bl5xlNjBvUEk8OHrcuzsFt+Ied4LvJihbtXPM+8zUqdydfIti86v9g==
+  version "20.11.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.5.tgz#be10c622ca7fcaa3cf226cf80166abc31389d86e"
+  integrity sha512-g557vgQjUUfN76MZAN/dt1z3dzcUsimuysco0KeluHgrPdJXkP/XdAURgyO2W9fZWHRtRBiVKzKn8vyOAwlG+w==
   dependencies:
     undici-types "~5.26.4"
 
@@ -473,18 +473,18 @@ combined-stream@^1.0.8:
   dependencies:
     complex-utils "2.1.1 - 2.1.99"
 
-"complex-request-axios@0.2.0 - 0.2.99":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/complex-request-axios/-/complex-request-axios-0.2.0.tgz#4644a0835a2f8fefb9a5e1b67909c2f20a175fd8"
-  integrity sha512-pgRJhUIqWTwMdZMqzlBIbNc0aoIq5iNLbOiq50YUj5iGKbmNUS09H03iKaX+SZ33yYyvwlW2rl+5nqN/4QmRHQ==
+"complex-request-axios@0.2.1 - 0.2.99":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/complex-request-axios/-/complex-request-axios-0.2.1.tgz#15763e17daab2b3793ba773b1ed4f5737a1d011f"
+  integrity sha512-EE+tXQSASwMkXTHxFU0vrdYrGkzOM0mQatxru4zPhq5GmWqkdfyc027Ey2YexiLc13T0pVn8xqU/Blf7I5Nq8Q==
   dependencies:
     axios "^1.6.2"
-    complex-request "0.2.0 - 0.2.99"
+    complex-request "0.2.1 - 0.2.99"
 
-"complex-request@0.2.0 - 0.2.99":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/complex-request/-/complex-request-0.2.0.tgz#cbfc928677025efbadc234f7a03308e449c9053b"
-  integrity sha512-Ts5/dUjgJJwQ/a4Fd4Z0cdIoMJMiodECqFrKoszV9/aNIr5I9/ow7DR6nPyK5y/TsFOXQU8NpLvO3Z7WYWJzBw==
+"complex-request@0.2.1 - 0.2.99":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/complex-request/-/complex-request-0.2.1.tgz#7970c000f76b895e9a7b2234a3cc744d1878a5da"
+  integrity sha512-kbxZlsukJ8sepT0MxZq8QHPU7W4I2rwmeya9ae/bs+/9A9jC14ZjyfDmeKx9Pv2qGpsH9Kxq39sxgLNPgxMG8w==
   dependencies:
     complex-plugin "4.1.0 - 4.1.99"
 
@@ -672,9 +672,9 @@ nanoid@^3.3.7:
   integrity sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==
 
 nanopop@^2.1.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/nanopop/-/nanopop-2.3.0.tgz#a5f672fba27d45d6ecbd0b59789c040072915123"
-  integrity sha512-fzN+T2K7/Ah25XU02MJkPZ5q4Tj5FpjmIYq4rvoHX4yb16HzFdCO6JxFFn5Y/oBhQ8no8fUZavnyIv9/+xkBBw==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/nanopop/-/nanopop-2.4.0.tgz#ac11c8c5edfad8f1a1e0d02040464c60811d21ee"
+  integrity sha512-A/mitpZitCkPq5W+iRq9p2t9Sv+zSUdu8x+eF7twkP5F0d+QUod321IDB1RQD8QRiBWnW4PdT3sF1sFt/P/g7Q==
 
 path-browserify@^1.0.1:
   version "1.0.1"

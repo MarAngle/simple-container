@@ -14,7 +14,7 @@
     "complex-component": "4.1.5 - 4.1.99",
     "complex-data": "4.1.9 - 4.1.99",
     "complex-plugin": "4.1.2 - 4.1.99",
-    "complex-request-axios": "0.2.0 - 0.2.99",
+    "complex-request-axios": "0.2.1 - 0.2.99",
     "complex-utils": "2.1.1 - 2.1.99",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
