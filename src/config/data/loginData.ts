@@ -1,8 +1,9 @@
 import { BaseData } from "complex-data";
 import { BaseDataInitOption } from "complex-data/src/data/BaseData";
-import menuData from "./menuData";
+import userData from "./userData";
+import { loginApiArg } from "@/api/main/loginApi";
 
-class LoginData extends BaseData{
+export class LoginData extends BaseData{
   constructor(initOption: BaseDataInitOption) {
     super(initOption)
   }
@@ -10,12 +11,8 @@ class LoginData extends BaseData{
 
 const loginData = new LoginData({
   prop: 'loginData',
-  getData() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({})
-      }, 200)
-    })
+  getData(data) {
+    return userData.login(data as loginApiArg)
   }
 })
 

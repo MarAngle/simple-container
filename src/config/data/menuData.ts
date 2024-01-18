@@ -12,7 +12,7 @@ const roleRouter: RouteRecordRaw[] = [
   }
 ]
 
-class MenuData extends BaseData{
+export class MenuData extends BaseData{
   data: RouteRecordRaw[]
   constructor(initOption: BaseDataInitOption) {
     super(initOption)

@@ -1,4 +1,4 @@
-import { isCompleteUrl } from 'complex-utils'
+import { getEnv, isCompleteUrl } from 'complex-utils'
 import { responseType } from 'complex-request/src/Rule'
 import { Data } from 'complex-data'
 import request, { requestConfig } from '@/config/request'
@@ -11,7 +11,14 @@ export interface apiType {
   service?: string
 }
 
-export interface ApitDataInitOption {
+const mockConfig =  getEnv('real') === 'development'
+
+export type mockType<R extends responseType = responseType> = {
+  trigger?: boolean | 'force'
+  data: ((requireConfig: Partial<requestConfig>) => R['data'])
+}
+
+export interface ApitDataInitOption<R extends responseType = responseType> {
   name: string
   url: string
   token?: requestConfig['token']
@@ -19,6 +26,7 @@ export interface ApitDataInitOption {
   method?: requestConfig['method']
   data?: requestConfigKeysWithInherit[]
   format?: requestConfig['format']
+  mock?: mockType<R>
 }
 
 function formatApi (url: string, api?: apiType) {
@@ -61,14 +69,14 @@ class ApiData<A extends unknown[] = unknown[], R extends responseType = response
   method?: requestConfig['method']
   data: requestConfigKeys[]
   format?: requestConfig['format']
-  constructor(initOption: ApitDataInitOption) {
+  mock?: mockType<R>['data']
+  constructor(initOption: ApitDataInitOption<R>) {
     super()
     this.name = initOption.name
     this.url = initOption.url
     this.token = initOption.token
     this.api = initOption.api
     this.method = initOption.method
-    this.format = initOption.format
     if (initOption.data) {
       const inherit = getTypeList.indexOf(this.method) > -1 ? 'params' : 'data'
       this.data = initOption.data.map(dataStr => {
@@ -77,8 +85,14 @@ class ApiData<A extends unknown[] = unknown[], R extends responseType = response
     } else {
       this.data = []
     }
+    this.format = initOption.format
+    if (initOption.mock) {
+      if ((mockConfig === true && initOption.mock.trigger !== false) || initOption.mock.trigger === 'force') {
+        this.mock = initOption.mock.data
+      }
+    }
   }
-  require(...args: A) {
+  require(...args: A): Promise<R> {
     const url = formatApi(this.url, this.api)
     const requireConfig: Partial<requestConfig> = {
       url: url,
@@ -87,8 +101,10 @@ class ApiData<A extends unknown[] = unknown[], R extends responseType = response
       format: this.format
     }
     appendProp(requireConfig, this.data, args)
-    const promise = request.request(requireConfig)
-    return promise as Promise<R>
+    if (!this.mock) {
+      return request.request(requireConfig) as Promise<R>
+    }
+    return Promise.resolve(this.mock(requireConfig))
   }
 }
 
