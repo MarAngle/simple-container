@@ -28,6 +28,10 @@ const menuData = new MenuData({
       this.data.forEach(item => {
         router.addRoute(item)
       })
+      router.addRoute({
+        path: '/:catchAll(.*)',
+        redirect: '/404'
+      })
       resolve({})
     })
   }
