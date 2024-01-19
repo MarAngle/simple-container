@@ -1,28 +1,41 @@
-import { BaseData } from "complex-data";
-import { BaseDataInitOption } from "complex-data/src/data/BaseData";
 import loginApi, { loginApiArg, userInfo } from "@/api/main/loginApi";
+import { getLocalData, setLocalData } from "complex-utils";
+import { reactive } from "vue";
 
-export class UserData extends BaseData{
+const localKey = 'userInfo'
+
+export class UserData{
+  load: 'un' | 'ing' | 'success'
   data: Partial<userInfo>
-  constructor(initOption: BaseDataInitOption) {
-    super(initOption)
-    this.data = {}
+  constructor() {
+    const localData = getLocalData(localKey)
+    if (localData) {
+      this.data = localData
+      this.load = 'success'
+    } else {
+      this.data = {}
+      this.load = 'un'
+    }
   }
   login(data: loginApiArg) {
     return new Promise((resolve, reject) => {
+      this.load = 'ing'
       loginApi.require(data).then(res => {
-        console.log(res)
-        this.data = res.data
+        this.setData(res.data.data)
+        this.load = 'success'
         resolve(res)
       }).catch(err => {
+        this.load = 'un'
         reject(err)
       })
     })
   }
+  setData(data?: userInfo) {
+    this.data = data || {}
+    setLocalData(localKey, data)
+  }
 }
 
-const userData = new UserData({
-  prop: 'userData',
-})
+const userData = reactive(new UserData())
 
 export default userData

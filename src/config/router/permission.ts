@@ -1,6 +1,6 @@
 import { NavigationGuardNext, RouteLocationRaw } from 'vue-router'
 import router from '../router'
-import loginData from '../data/loginData'
+import userData from '../data/userData'
 import dependData from '../data/dependData'
 
 export const loginPath = ['/login']
@@ -17,7 +17,7 @@ function finalNext (next: NavigationGuardNext, location?: RouteLocationRaw) {
   }
 }
 router.beforeEach((to, from, next) => {
-  if (loginData.getStatus('load') === 'success') {
+  if (userData.load === 'success') {
     if (loginPath.indexOf(to.path) !== -1) {
       finalNext(next, { path: '/' })
     } else if (dependData.load !== 'success') {
