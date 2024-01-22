@@ -6,9 +6,18 @@ import router from "../router";
 const roleRouter: RouteRecordRaw[] = [
   {
     path: '/list',
+    redirect: '/list/home',
     name: '列表',
-    component: () => import('@/views/list/index.vue'),
-    meta: {}
+    component: () => import('@/config/layout/TabLayout.vue'),
+    meta: {},
+    children: [
+      {
+        path: '/list/home',
+        name: '列表',
+        component: () => import('@/views/list/index.vue'),
+        meta: {}
+      },
+    ]
   }
 ]
 

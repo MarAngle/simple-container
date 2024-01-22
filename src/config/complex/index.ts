@@ -2,7 +2,7 @@ import { reactive } from 'vue'
 import { Modal, ModalProps, notification } from 'ant-design-vue'
 import { NotificationArgsProps } from 'ant-design-vue/lib/notification'
 import { setEnv } from 'complex-utils'
-import { install } from 'complex-plugin'
+import { install, layout } from 'complex-plugin'
 import { Data } from 'complex-data'
 import { noticeMsgType } from 'complex-plugin/src/notice'
 import '@/modules/complex-component-antd/init'
@@ -75,4 +75,12 @@ install({
       }
     }
   }
+})
+
+layout.installMod('sider', {
+  width: 80
+})
+
+layout.installMod('header', {
+  width: 60
 })
