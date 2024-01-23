@@ -82,5 +82,5 @@ layout.installMod('sider', {
 })
 
 layout.installMod('header', {
-  width: 60
+  height: 60
 })

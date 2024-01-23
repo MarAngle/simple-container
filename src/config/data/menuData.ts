@@ -8,7 +8,7 @@ const roleRouter: RouteRecordRaw[] = [
     path: '/list',
     redirect: '/list/home',
     name: '列表',
-    component: () => import('@/config/layout/TabLayout.vue'),
+    component: () => import('@/config/layout/ComplexLayout.vue'),
     meta: {},
     children: [
       {
