@@ -74,13 +74,13 @@ install({
         return Modal.info(option)
       }
     }
+  },
+  layout: {
+    sider: {
+      width: 80
+    },
+    header: {
+      height: 60
+    }
   }
-})
-
-layout.installMod('sider', {
-  width: 80
-})
-
-layout.installMod('header', {
-  height: 60
 })

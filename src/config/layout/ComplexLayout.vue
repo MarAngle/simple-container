@@ -81,10 +81,10 @@ export default defineComponent({
   },
   computed: {
     siderWidth() {
-      return config.formatPixel(this.layout.$mod.sider.width!)
+      return config.formatPixel(this.layout.mod.sider.width!)
     },
     headerHeight() {
-      return config.formatPixel(this.layout.$mod.header.height!)
+      return config.formatPixel(this.layout.mod.header.height!)
     },
     logoStyle() {
       return {
