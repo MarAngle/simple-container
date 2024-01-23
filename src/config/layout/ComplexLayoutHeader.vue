@@ -1,16 +1,16 @@
 <style scoped>
-.complex-layout-logo{
-  
+.complex-layout-header{
+  background-color: #aaa;
 }
 </style>
 <template>
-  <div class="complex-layout-logo"></div>
+  <div class="complex-layout-header"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ComplexLayoutLogo'
+  name: 'ComplexLayoutHeader'
 })
 </script>

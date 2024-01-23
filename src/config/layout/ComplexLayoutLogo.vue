@@ -1,3 +1,8 @@
+<style scoped>
+.complex-layout-logo{
+  background-color: #bbb;
+}
+</style>
 <template>
   <div class="complex-layout-logo"></div>
 </template>
