@@ -38,6 +38,9 @@ const mainData = new ComplexList({
             option: {
               type: 'default',
               name: '测试已选择2条时可用',
+              disabled(payload) {
+                return payload.choice != 2
+              },
               click: () => {
                 return new Promise((resolve) => {
                   setTimeout(() => {
