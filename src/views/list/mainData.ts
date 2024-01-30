@@ -1,13 +1,6 @@
 import request from "@/config/request";
 import { ComplexList, SelectValue } from "complex-data";
-// import { notice } from "complex-plugin";
-
-// notice.confirm('confirm', '456', (act) => {
-//   console.log(act)
-// })
-// notice._alert('alert', '456', (act) => {
-//   console.log(act)
-// })
+import DefaultEditButton from "complex-data/src/dictionary/DefaultEditButton";
 
 const select = new SelectValue({
   list: [
@@ -39,32 +32,37 @@ const mainData = new ComplexList({
         list: [
           'build',
           'delete',
-          {
-            type: 'default',
-            name: '测试已选择2条时可用',
+          new DefaultEditButton({
             prop: 'choice2',
-            choice: 2,
-            click: () => {
-              return new Promise((resolve) => {
-                setTimeout(() => {
-                  resolve({})
-                }, 2000)
-              })
+            type: 'button',
+            option: {
+              type: 'default',
+              name: '测试已选择2条时可用',
+              click: () => {
+                return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve({})
+                  }, 2000)
+                })
+              }
             }
-          },
-          {
-            type: 'default',
-            name: '导入',
-            prop: 'import',
-            icon: 'upload',
-            upload: (file) => {
-              return new Promise((resolve) => {
-                setTimeout(() => {
-                  resolve({})
-                }, 3000)
-              })
+          }),
+          new DefaultEditButton({
+            prop: '$import',
+            type: 'button',
+            option: {
+              type: 'default',
+              name: '导入',
+              icon: 'upload',
+              upload: (file) => {
+                return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve({})
+                  }, 3000)
+                })
+              }
             }
-          }
+          })
         ]
       },
       list: [
@@ -104,6 +102,16 @@ const mainData = new ComplexList({
               option: {
                 size: 20
               }
+            }
+          }
+        },
+        {
+          prop: 'menu',
+          name: 'menu',
+          mod: {
+            search: {
+              $format: 'edit',
+              type: 'button'
             }
           }
         },
