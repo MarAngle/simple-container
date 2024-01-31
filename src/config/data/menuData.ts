@@ -1,9 +1,9 @@
 
-import { CSSProperties, VNode } from "vue";
+import { CSSProperties, VNode, h } from "vue";
 import { RouteComponent, RouteRecordRaw } from "vue-router";
+import { HomeOutlined, TableOutlined, SettingOutlined } from '@ant-design/icons-vue';
 import { BaseData } from "complex-data";
 import { BaseDataInitOption } from "complex-data/src/data/BaseData";
-import icon from "complex-component-antd/icon";
 import router from "../router";
 import pluginLayout from "../complex/pluginLayout";
 
@@ -11,7 +11,7 @@ export type menuType = {
   path: string
   redirect?: string
   name: string
-  component: RouteComponent
+  component?: RouteComponent
   meta: {
     icon?: () => VNode
     name?: string
@@ -23,22 +23,37 @@ export type menuType = {
 
 const menuList: menuType[] = [
   {
+    path: '/home',
+    name: '首页',
+    component: () => import('@/views/home/index.vue'),
+    meta: {
+      icon: () => h(HomeOutlined)
+    }
+  },
+  {
     path: '/list',
     redirect: '/list/home',
     name: '列表',
-    component: () => import('@/config/layout/ComplexLayout.vue'),
     meta: {
-      icon: () => icon.parse('plus') as VNode
+      icon: () => h(TableOutlined)
     },
     children: [
       {
         path: '/list/home',
-        name: '列表',
+        name: '基础列表',
         component: () => import('@/views/list/index.vue'),
         meta: {}
       },
     ]
-  }
+  },
+  {
+    path: '/setting',
+    redirect: '/setting',
+    name: '设置',
+    meta: {
+      icon: () => h(SettingOutlined)
+    }
+  },
 ]
 
 export class MenuData extends BaseData{

@@ -4,7 +4,18 @@
   border-top: 1px rgba(255, 255, 255, 0.45) solid;
   display: flex;
   flex-direction: column;
-
+  .complex-layout-sider-menu{
+    flex: auto;
+    width: 100%;
+    height: 100%;
+  }
+  .complex-layout-sider-collapsed{
+    flex: none;
+    width: 100%;
+    height: 64px;
+    padding: 16px 0;
+    text-align: center;
+  }
 }
 </style>
 <template>
