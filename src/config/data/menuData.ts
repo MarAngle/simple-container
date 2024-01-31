@@ -3,9 +3,9 @@ import { CSSProperties, VNode } from "vue";
 import { RouteComponent, RouteRecordRaw } from "vue-router";
 import { BaseData } from "complex-data";
 import { BaseDataInitOption } from "complex-data/src/data/BaseData";
-import router from "../router";
 import icon from "complex-component-antd/icon";
-import { layout } from "complex-plugin";
+import router from "../router";
+import pluginLayout from "../complex/pluginLayout";
 
 export type menuType = {
   path: string
@@ -56,7 +56,7 @@ export class MenuData extends BaseData{
   }
   toggleCollapsed() {
     this.collapsed = !this.collapsed
-    layout.mod.sider.onChange()
+    pluginLayout.mod.sider.onChange()
   }
 }
 

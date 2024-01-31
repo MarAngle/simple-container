@@ -6,17 +6,16 @@ import { install } from 'complex-plugin'
 import { Data } from 'complex-data'
 import { noticeMsgType } from 'complex-plugin/src/notice'
 import '@/modules/complex-component-antd/init'
-import menuData from '../data/menuData'
 
 setEnv(import.meta.env.VITE_APP_ENV)
 setEnv(import.meta.env.VITE_APP_ENV, 'real')
 
-Data.$format = function(data) {
-  return reactive(data)
-}
-
-const getSiderWidth = function() {
-  return menuData.collapsed ? 80 : 200
+Data.$format = function(data, formatConfig) {
+  if (formatConfig && formatConfig.recommend) {
+    return reactive(data)
+  } else {
+    return data
+  }
 }
 
 install({
@@ -78,18 +77,6 @@ install({
         console.error('modal type is not defined, type reset info')
         return Modal.info(option)
       }
-    }
-  },
-  layout: {
-    sider: {
-      width: getSiderWidth(),
-      change() {
-        this.width = getSiderWidth()
-        console.log(this)
-      }
-    },
-    header: {
-      height: 60
     }
   }
 })

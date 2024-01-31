@@ -59,12 +59,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { PluginLayout } from 'complex-plugin'
+import config from 'complex-data/config'
 import dependData from '@/config/data/dependData'
 import ComplexLayoutLogo from './ComplexLayoutLogo.vue'
 import ComplexLayoutHeader from './ComplexLayoutHeader.vue'
 import ComplexLayoutSider from './ComplexLayoutSider.vue'
-import { layout } from 'complex-plugin'
-import config from 'complex-data/config'
 
 export default defineComponent({
   name: 'ComplexLayout',
@@ -73,18 +73,18 @@ export default defineComponent({
     ComplexLayoutHeader,
     ComplexLayoutSider
   },
+  inject: ['pluginLayout'],
   data() {
     return {
-      dependData: dependData,
-      layout: layout
+      dependData: dependData
     }
   },
   computed: {
     siderWidth() {
-      return config.formatPixel(this.layout.mod.sider.width!)
+      return config.formatPixel((this.pluginLayout as PluginLayout).mod.sider.width!)
     },
     headerHeight() {
-      return config.formatPixel(this.layout.mod.header.height!)
+      return config.formatPixel((this.pluginLayout as PluginLayout).mod.header.height!)
     },
     logoStyle() {
       return {
@@ -105,7 +105,7 @@ export default defineComponent({
       }
     },
     pageStyle() {
-      if (this.layout.type === 'default' && this.dependData.load === 'success') {
+      if ((this.pluginLayout as PluginLayout).type === 'default' && this.dependData.load === 'success') {
         return {
           paddingLeft: this.siderWidth,
           paddingTop: this.headerHeight

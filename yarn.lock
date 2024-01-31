@@ -253,9 +253,9 @@
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
 "@types/node@^20.11.3":
-  version "20.11.10"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.11.10.tgz#6c3de8974d65c362f82ee29db6b5adf4205462f9"
-  integrity sha512-rZEfe/hJSGYmdfX9tvcPMYeYPW2sNl50nsw4jZmRcaG0HIAb0WYEpsB05GOb53vjqpyE9GUhlDQ4jLSoB5q9kg==
+  version "20.11.13"
+  resolved "https://registry.npmjs.org/@types/node/-/node-20.11.13.tgz#188263ee2c8d590e181d3f5bfa7e485a932957cb"
+  integrity sha512-5G4zQwdiQBSWYTDAH1ctw2eidqdhMJaNsiIDKHFr55ihz5Trl2qqR8fdrT732yPBho5gkNxXm67OxWFBqX9aPg==
   dependencies:
     undici-types "~5.26.4"
 
@@ -456,14 +456,15 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
-"complex-component-antd@4.1.1 - 4.1.99":
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.1.1.tgz#f676ad844d3e8768c9bbc2c5959414daa96aae12"
-  integrity sha512-R29iqM15SJGeBzD1BrfBUNWcceBV5J1EglmUEKcLtTOlMo1uEZkdtXEE8NqqUO35Wj1rqDOEpcjgrK84d+GJKw==
+"complex-component-antd@4.1.2 - 4.1.99":
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.1.2.tgz#810054b3cd02279e738c5a1840a2387119082644"
+  integrity sha512-U+OPEmxGNETFR9lpTu+EwojS56CVU02mq3+e2JyXtEggYOcDdkVTTSEV5lqR6TiwrEKuJEBgme05D04wziM+jg==
   dependencies:
     ant-design-vue "^4.1.0"
     complex-component "4.1.5 - 4.1.99"
     complex-data "4.1.14 - 4.1.99"
+    complex-plugin "4.1.6 - 4.1.99"
 
 "complex-component@4.1.5 - 4.1.99":
   version "4.1.5"
@@ -480,10 +481,10 @@ combined-stream@^1.0.8:
   dependencies:
     complex-utils "2.1.1 - 2.1.99"
 
-"complex-plugin@4.1.0 - 4.1.99", "complex-plugin@4.1.2 - 4.1.99", "complex-plugin@4.1.4 - 4.1.99":
-  version "4.1.4"
-  resolved "https://registry.npmjs.org/complex-plugin/-/complex-plugin-4.1.4.tgz#7a785cb6d6b4902efc56de046a86c17eafe3aa12"
-  integrity sha512-Aj5hiz10XjU1x/rS2U9YA1VOSTtCuiaaJ9B4lAzuibw5aXc9kuN3SO2uZ5+5j3I6sOQlRYBtz+Q8tVCXJdOtcQ==
+"complex-plugin@4.1.0 - 4.1.99", "complex-plugin@4.1.2 - 4.1.99", "complex-plugin@4.1.6 - 4.1.99":
+  version "4.1.6"
+  resolved "https://registry.npmjs.org/complex-plugin/-/complex-plugin-4.1.6.tgz#d18ce6d52c46875c72e9fc3c93dc569eef2e7ca9"
+  integrity sha512-SUUVv/RT93XSv7MxSHwKNswN+x9gXMQDwDZdNfe3/7msZ837DCfS5hObJZsGu5grEpPKgK7HwzOnejnN/P3rtA==
   dependencies:
     complex-utils "2.1.1 - 2.1.99"
 
