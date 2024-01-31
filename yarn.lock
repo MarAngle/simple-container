@@ -456,6 +456,15 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
+"complex-component-antd@4.1.1 - 4.1.99":
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.1.1.tgz#f676ad844d3e8768c9bbc2c5959414daa96aae12"
+  integrity sha512-R29iqM15SJGeBzD1BrfBUNWcceBV5J1EglmUEKcLtTOlMo1uEZkdtXEE8NqqUO35Wj1rqDOEpcjgrK84d+GJKw==
+  dependencies:
+    ant-design-vue "^4.1.0"
+    complex-component "4.1.5 - 4.1.99"
+    complex-data "4.1.14 - 4.1.99"
+
 "complex-component@4.1.5 - 4.1.99":
   version "4.1.5"
   resolved "https://registry.npmjs.org/complex-component/-/complex-component-4.1.5.tgz#44051e9f1d6dfeb40bdfc9d0a5adb8286cd568fd"

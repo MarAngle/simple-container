@@ -1,6 +1,6 @@
 <style scoped>
 .complex-layout-logo{
-  background-color: #bbb;
+  background-color: #000c17;
 }
 </style>
 <template>

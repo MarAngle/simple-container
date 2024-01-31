@@ -5,6 +5,5 @@ import './router/permission'
 
 export const init = function(app: App) {
   app.use(router)
-
   return app
 }

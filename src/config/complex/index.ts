@@ -2,16 +2,21 @@ import { reactive } from 'vue'
 import { Modal, ModalProps, notification } from 'ant-design-vue'
 import { NotificationArgsProps } from 'ant-design-vue/lib/notification'
 import { setEnv } from 'complex-utils'
-import { install, layout } from 'complex-plugin'
+import { install } from 'complex-plugin'
 import { Data } from 'complex-data'
 import { noticeMsgType } from 'complex-plugin/src/notice'
 import '@/modules/complex-component-antd/init'
+import menuData from '../data/menuData'
 
 setEnv(import.meta.env.VITE_APP_ENV)
 setEnv(import.meta.env.VITE_APP_ENV, 'real')
 
 Data.$format = function(data) {
   return reactive(data)
+}
+
+const getSiderWidth = function() {
+  return menuData.collapsed ? 80 : 200
 }
 
 install({
@@ -77,7 +82,11 @@ install({
   },
   layout: {
     sider: {
-      width: 80
+      width: getSiderWidth(),
+      change() {
+        this.width = getSiderWidth()
+        console.log(this)
+      }
     },
     header: {
       height: 60
