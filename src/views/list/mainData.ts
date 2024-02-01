@@ -85,13 +85,17 @@ const mainData = new ComplexList({
         },
         {
           prop: 'menu',
-          name: 'menu',
+          name: {
+            search: ''
+          },
           mod: {
             search: {
               $format: 'edit',
               type: 'button',
               option: {
-                type: 'primary'
+                type: 'primary',
+                icon: 'refresh',
+                name: '测试按钮'
               }
             }
           }
@@ -371,6 +375,7 @@ const mainData = new ComplexList({
   getData(this: ComplexList) {
     return new Promise((resolve, reject) => {
       const postData = this.getSearch() as any
+      console.log(postData)
       postData.page = this.getPage()
       postData.size = this.getPageSize()
       listApi.list.require(postData).then(res => {

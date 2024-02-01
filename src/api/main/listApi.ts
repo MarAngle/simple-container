@@ -95,7 +95,6 @@ const listApi = {
         const item = requestConfig.data as listItemType
         item.id = list.length + 1
         list.unshift(item)
-        console.log(list, item)
         return {
           result: 'SUCCEED',
           data: {
