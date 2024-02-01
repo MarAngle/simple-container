@@ -6,6 +6,7 @@ import { install } from 'complex-plugin'
 import { Data } from 'complex-data'
 import { noticeMsgType } from 'complex-plugin/src/notice'
 import '@/modules/complex-component-antd/init'
+import { initStyle } from '@/modules/complex-component-antd'
 
 setEnv(import.meta.env.VITE_APP_ENV)
 setEnv(import.meta.env.VITE_APP_ENV, 'real')
@@ -17,6 +18,8 @@ Data.$format = function(data, formatConfig) {
     return data
   }
 }
+
+initStyle()
 
 install({
   notice: {

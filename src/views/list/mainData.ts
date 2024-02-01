@@ -1,3 +1,4 @@
+import listApi from "@/api/main/listApi";
 import request from "@/config/request";
 import { ComplexList, SelectValue } from "complex-data";
 import DefaultEditButton from "complex-data/src/dictionary/DefaultEditButton";
@@ -6,19 +7,19 @@ const select = new SelectValue({
   list: [
     {
       value: 0,
-      label: '未处理'
+      label: '选项1'
     },
     {
       value: 1,
-      label: '处理中'
+      label: '选项2'
     },
     {
       value: 2,
-      label: '已完成'
+      label: '选项3'
     },
     {
       value: 3,
-      label: '已关闭'
+      label: '选项4'
     },
   ]
 })
@@ -37,7 +38,7 @@ const mainData = new ComplexList({
             type: 'button',
             option: {
               type: 'default',
-              name: '测试已选择2条时可用',
+              name: '已选择2条时可用',
               disabled(payload) {
                 return payload.choice != 2
               },
@@ -70,34 +71,8 @@ const mainData = new ComplexList({
       },
       list: [
         {
-          prop: 'vin',
-          name: 'VIN',
-          mod: {
-            search: {
-              $format: 'edit',
-              type: 'input',
-              option: {
-                size: 20
-              }
-            }
-          }
-        },
-        {
-          prop: 'svin',
-          name: 'sVIN',
-          mod: {
-            search: {
-              $format: 'edit',
-              type: 'input',
-              option: {
-                size: 20
-              }
-            }
-          }
-        },
-        {
-          prop: 'evin',
-          name: 'eVIN',
+          prop: 'input',
+          name: '输入框',
           mod: {
             search: {
               $format: 'edit',
@@ -114,7 +89,10 @@ const mainData = new ComplexList({
           mod: {
             search: {
               $format: 'edit',
-              type: 'button'
+              type: 'button',
+              option: {
+                type: 'primary'
+              }
             }
           }
         },
@@ -122,12 +100,30 @@ const mainData = new ComplexList({
     },
     dictionary: {
       propData: {
-        id: 'vin'
+        id: 'id'
       },
       list: [
         {
-          prop: 'vin',
-          name: 'VIN',
+          prop: '$index',
+          name: 'No',
+          mod: {
+            list: {
+              width: 50
+            }
+          }
+        },
+        {
+          prop: 'id',
+          name: 'ID',
+          mod: {
+            list: {
+              width: 80
+            }
+          }
+        },
+        {
+          prop: 'input',
+          name: '输入框',
           mod: {
             list: {
               width: 100
@@ -148,17 +144,18 @@ const mainData = new ComplexList({
           }
         },
         {
-          prop: 'faultName',
-          name: '名称',
+          prop: 'number',
+          name: '数字',
           mod: {
             list: {
-              width: 100
+              width: 80
             },
             edit: {
-              type: 'input',
+              type: 'inputNumber',
               required: true,
               option: {
-                size: 20
+                max: 200,
+                min: 0
               }
             },
             build: {
@@ -170,18 +167,15 @@ const mainData = new ComplexList({
           }
         },
         {
-          prop: 'recordLocationoccur',
-          name: '故障地址',
+          prop: 'switch',
+          name: '开关',
           mod: {
             list: {
-              width: 200
+              width: 60
             },
             edit: {
-              type: 'input',
-              required: true,
-              option: {
-                size: 20
-              }
+              type: 'switch',
+              required: true
             },
             build: {
               $redirect: 'edit'
@@ -192,64 +186,8 @@ const mainData = new ComplexList({
           }
         },
         {
-          prop: 'url',
-          name: '文件',
-          mod: {
-            edit: {
-              type: 'file',
-              required: true,
-              option: {
-                upload(file) {
-                  return new Promise((resolve) => {
-                    setTimeout(() => {
-                      resolve({ file: { data: (file as File).name, name: (file as File).name  } })
-                    }, 500)
-                  })
-                },
-              }
-            },
-            build: {
-              $redirect: 'edit'
-            },
-            change: {
-              $redirect: 'edit'
-            }
-          }
-        },
-        {
-          prop: 'multipleUrl',
-          name: '多文件',
-          mod: {
-            edit: {
-              type: 'file',
-              multiple: true,
-              required: true,
-              option: {
-                upload(file) {
-                  return new Promise((resolve) => {
-                    setTimeout(() => {
-                      resolve({ file: (file as File[]).map(item => {
-                        return {
-                          data: item.name,
-                          name: item.name
-                        }
-                      }) })
-                    }, 500)
-                  })
-                },
-              }
-            },
-            build: {
-              $redirect: 'edit'
-            },
-            change: {
-              $redirect: 'edit'
-            }
-          }
-        },
-        {
-          prop: 'recordProcessingStatus',
-          name: '处理状态',
+          prop: 'select',
+          name: '选择器',
           showProp: {
             default: 'value',
             list: 'label'
@@ -287,11 +225,101 @@ const mainData = new ComplexList({
           }
         },
         {
-          prop: 'recordTimeRelease',
-          name: '时间',
+          prop: 'file',
+          name: '文件',
+          mod: {
+            edit: {
+              type: 'file',
+              required: true,
+              option: {
+                upload(file) {
+                  return new Promise((resolve) => {
+                    setTimeout(() => {
+                      resolve({ file: { data: (file as File).name, name: (file as File).name  } })
+                    }, 500)
+                  })
+                },
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
+        {
+          prop: 'multipleFile',
+          name: '多文件',
+          format(value) {
+            return value ? (value as string).split(',') : []
+          },
+          mod: {
+            edit: {
+              type: 'file',
+              multiple: true,
+              required: true,
+              option: {
+                upload(file) {
+                  return new Promise((resolve) => {
+                    setTimeout(() => {
+                      resolve({ file: (file as File[]).map(item => {
+                        return {
+                          data: item.name,
+                          name: item.name
+                        }
+                      }) })
+                    }, 500)
+                  })
+                },
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
+        {
+          prop: 'date',
+          name: '日期',
           mod: {
             list: {
               width: 100
+            },
+            edit: {
+              type: 'date',
+              required: true,
+              option: {
+                disabledDate: {
+                  start: {
+                    value: 'today',
+                    eq: true
+                  },
+                  end: {
+                    value: 'tomorrow',
+                    eq: true
+                  }
+                }
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
+        {
+          prop: 'time',
+          name: '时间',
+          mod: {
+            list: {
+              width: 175
             },
             edit: {
               type: 'date',
@@ -333,16 +361,11 @@ const mainData = new ComplexList({
   },
   getData(this: ComplexList) {
     return new Promise((resolve, reject) => {
-      console.log(this.getSearch())
-      request.post({
-        url: 'vehicle/warning/digital/screen/getWarningList',
-        data: {
-          agreement: 'GB32960',
-          type: [2],
-          limit: 15
-        }
-      }).then(res => {
-        this.formatList(res.data.data[2], 100)
+      const postData = this.getSearch() as any
+      postData.page = this.getPage()
+      postData.size = this.getPageSize()
+      listApi.require(postData).then(res => {
+        this.formatList(res.data.data, 100)
         resolve(res)
       }).catch(err => {
         console.log(err)

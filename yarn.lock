@@ -10,9 +10,9 @@
     "@ctrl/tinycolor" "^3.4.0"
 
 "@ant-design/icons-svg@^4.2.1":
-  version "4.3.2"
-  resolved "https://registry.npmjs.org/@ant-design/icons-svg/-/icons-svg-4.3.2.tgz#ab2e082991877fdc85b2b32f0b68628b716bad23"
-  integrity sha512-s9WV19cXTC/Tux/XpDru/rCfPZQhGaho36B+9RrN1v5YsaKmE6dJ+fq6LQnXVBVYjzkqykEEK+1XG+SYiottTQ==
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/@ant-design/icons-svg/-/icons-svg-4.4.0.tgz#435b544291fdabe992b3fd17829ff88c04c628b4"
+  integrity sha512-71rcNssTaRL1ytvPLebKuc/8Bjqxs5V1YkTbqlSCvNa0Se+HmYJwWHhRTpsSHBh+sWFtc7xpGCTRW2Ta04XyHw==
 
 "@ant-design/icons-vue@^7.0.0":
   version "7.0.1"
@@ -253,9 +253,9 @@
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
 "@types/node@^20.11.3":
-  version "20.11.13"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.11.13.tgz#188263ee2c8d590e181d3f5bfa7e485a932957cb"
-  integrity sha512-5G4zQwdiQBSWYTDAH1ctw2eidqdhMJaNsiIDKHFr55ihz5Trl2qqR8fdrT732yPBho5gkNxXm67OxWFBqX9aPg==
+  version "20.11.14"
+  resolved "https://registry.npmjs.org/@types/node/-/node-20.11.14.tgz#9fdc9c2550c2f6693508ca4530f821474c4ee3bb"
+  integrity sha512-w3yWCcwULefjP9DmDDsgUskrMoOy5Z8MiwKHr1FvqGPtx7CvJzQvxD7eKpxNtklQxLruxSXWddyeRtyud0RcXQ==
   dependencies:
     undici-types "~5.26.4"
 
@@ -474,10 +474,10 @@ combined-stream@^1.0.8:
     complex-data "4.1.8 - 4.1.99"
     complex-plugin "4.1.2 - 4.1.99"
 
-"complex-data@4.1.14 - 4.1.99", "complex-data@4.1.8 - 4.1.99":
-  version "4.1.14"
-  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.1.14.tgz#0a9d3c094ed3a76e3a1cae2a290256d5275ddec3"
-  integrity sha512-MzgB6h3KXRSU+PL6yvSnfnSkCZvigB8Ii9R4rIQzPAopTglhxJlbOMXndnA7UoIz84hOU6HvsbabMm3i9erqRg==
+"complex-data@4.1.14 - 4.1.99", "complex-data@4.1.15 - 4.1.99", "complex-data@4.1.8 - 4.1.99":
+  version "4.1.15"
+  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.1.15.tgz#b0940c796df912ab4691eda232fa359b0e9b6442"
+  integrity sha512-JNLBFo2MMZclVp5LQ6/cclzSh/8Umk+qBgPn+Q9dagbqSv2J0b+LularZn0dl4rgEviLugycJIcu2FKIiYxmKQ==
   dependencies:
     complex-utils "2.1.1 - 2.1.99"
 
@@ -503,10 +503,10 @@ combined-stream@^1.0.8:
   dependencies:
     complex-plugin "4.1.0 - 4.1.99"
 
-"complex-utils@2.1.1 - 2.1.99":
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/complex-utils/-/complex-utils-2.1.1.tgz#79c10784b761b46b57905505422c0e3fea0a3224"
-  integrity sha512-XAnV9vAYYfGJ+iT7MEtbfk8BbSium+aFB2C3QWFlw/TffZHjFkNajFneMmiZ2rhKSFbw6arApY1OaaP+eGdWkA==
+"complex-utils@2.1.1 - 2.1.99", "complex-utils@2.1.2 - 2.1.99":
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/complex-utils/-/complex-utils-2.1.2.tgz#3fc4b0f0e61094f88f1408ed9422b17a789118f6"
+  integrity sha512-Jpsm+BaEgoODFGLzzJgK3yZTbeOJD+z2cP6NZ3Sa4BxRVOFdDuRswiYsssJrJzegR064gTkGukshY0WgSKh0Lw==
 
 compute-scroll-into-view@^1.0.20:
   version "1.0.20"
@@ -656,9 +656,9 @@ lru-cache@^6.0.0:
     yallist "^4.0.0"
 
 magic-string@^0.30.5:
-  version "0.30.5"
-  resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.30.5.tgz#1994d980bd1c8835dc6e78db7cbd4ae4f24746f9"
-  integrity sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==
+  version "0.30.6"
+  resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.30.6.tgz#996e21b42f944e45591a68f0905d6a740a12506c"
+  integrity sha512-n62qCLbPjNjyo+owKtveQxZFZTBm+Ms6YoGD23Wew6Vw337PElFNifQpknPruVRQV57kVShPnLGo9vWxVhpPvA==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.15"
 
