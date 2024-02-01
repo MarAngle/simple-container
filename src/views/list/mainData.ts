@@ -1,4 +1,4 @@
-import listApi from "@/api/main/listApi";
+import listApi, { listItemType } from "@/api/main/listApi";
 import request from "@/config/request";
 import { ComplexList, SelectValue } from "complex-data";
 import DefaultEditButton from "complex-data/src/dictionary/DefaultEditButton";
@@ -154,7 +154,7 @@ const mainData = new ComplexList({
               type: 'inputNumber',
               required: true,
               option: {
-                max: 200,
+                max: 10000,
                 min: 0
               }
             },
@@ -169,6 +169,12 @@ const mainData = new ComplexList({
         {
           prop: 'switch',
           name: '开关',
+          format(value) {
+            return value === 1 ? true : false
+          },
+          post(value) {
+            return value ? 1 : 0
+          },
           mod: {
             list: {
               width: 60
@@ -212,7 +218,7 @@ const mainData = new ComplexList({
                     this.$option.list = select.getList()
                     this.$pagination.setCount(100)
                     resolve({})
-                  }, 2000)
+                  }, 200)
                 })
               }
             },
@@ -254,6 +260,9 @@ const mainData = new ComplexList({
           name: '多文件',
           format(value) {
             return value ? (value as string).split(',') : []
+          },
+          post(value) {
+            return value ? (value as string[]).join(',') : ''
           },
           mod: {
             edit: {
@@ -364,8 +373,8 @@ const mainData = new ComplexList({
       const postData = this.getSearch() as any
       postData.page = this.getPage()
       postData.size = this.getPageSize()
-      listApi.require(postData).then(res => {
-        this.formatList(res.data.data, 100)
+      listApi.list.require(postData).then(res => {
+        this.formatList(res.data.data.list, res.data.data.total)
         resolve(res)
       }).catch(err => {
         console.log(err)
@@ -374,25 +383,28 @@ const mainData = new ComplexList({
     })
   },
   buildData(this: ComplexList, targetData) {
-    return new Promise((resolve) => {
-      console.log(targetData)
-      setTimeout(() => {
-        this.$list.push(this.createDataByDictionary(targetData))
-        resolve({})
-      }, 1000)
+    return new Promise((resolve, reject) => {
+      listApi.build.require(targetData).then(res => {
+        console.log(res.data.data.id)
+        this.reloadData(true)
+        resolve(res)
+      }).catch(err => {
+        console.log(err)
+        reject(err)
+      })
     })
   },
   changeData(this: ComplexList, targetData, originData) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        targetData = this.createDataByDictionary(targetData)
-        const index = this.$list.indexOf(originData)
-        this.$list.splice(index, 1, {
-          ...originData,
-          ...targetData
-        })
-        resolve({})
-      }, 1000)
+    return new Promise((resolve, reject) => {
+      targetData.id = originData.id
+      listApi.change.require(targetData as listItemType).then(res => {
+        console.log(res.data.data)
+        this.reloadData(true)
+        resolve(res)
+      }).catch(err => {
+        console.log(err)
+        reject(err)
+      })
     })
   },
   deleteData(this: ComplexList, targetData) {
