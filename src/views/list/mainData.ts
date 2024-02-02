@@ -84,6 +84,38 @@ const mainData = new ComplexList({
           }
         },
         {
+          prop: 'multipleFile',
+          name: '多文件',
+          format(value) {
+            return value ? (value as string).split(',') : []
+          },
+          post(value) {
+            return value ? (value as string[]).join(',') : ''
+          },
+          mod: {
+            search: {
+              $format: 'edit',
+              type: 'file',
+              multiple: true,
+              required: true,
+              option: {
+                upload(file) {
+                  return new Promise((resolve) => {
+                    setTimeout(() => {
+                      resolve({ file: (file as File[]).map(item => {
+                        return {
+                          data: item.name,
+                          name: item.name
+                        }
+                      }) })
+                    }, 500)
+                  })
+                },
+              }
+            }
+          }
+        },
+        {
           prop: 'menu',
           name: {
             search: ''
