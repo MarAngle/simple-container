@@ -1,5 +1,4 @@
 import listApi, { listItemType } from "@/api/main/listApi";
-import request from "@/config/request";
 import { ComplexList, SelectValue } from "complex-data";
 import DefaultEditButton from "complex-data/src/dictionary/DefaultEditButton";
 
