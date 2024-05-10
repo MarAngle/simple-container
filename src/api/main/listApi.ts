@@ -12,6 +12,7 @@ export type listItemType = {
   multipleFile: string
   date: string
   time: string
+  timeRange: string
 }
 
 export type listApiSearchArg = {
@@ -47,7 +48,8 @@ for (let i = 0; i < total; i++) {
     file: 'http://a.jpg',
     multipleFile: 'http://a.jpg,http://b.jpg',
     date: '2019-05-15',
-    time: '2024-05-15 15:22:22'
+    time: '2024-05-15 15:22:22',
+    timeRange: '2024-05-15 15:22:22,2024-05-25 15:22:22'
   })
 }
 

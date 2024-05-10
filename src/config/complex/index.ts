@@ -13,7 +13,7 @@ setEnv(import.meta.env.VITE_APP_ENV, 'real')
 
 Data.$format = function(data, formatConfig) {
   if (formatConfig && formatConfig.recommend) {
-    return reactive(data)
+    return reactive(data) as Data
   } else {
     return data
   }

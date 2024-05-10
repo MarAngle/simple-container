@@ -8,7 +8,6 @@
 import { defineComponent } from 'vue';
 import mainData from './mainData';
 import { ComplexListView } from '@/modules/complex-component-antd';
-import DefaultEditButton from 'complex-data/src/dictionary/DefaultEditButton';
 
 export default defineComponent({
   name: 'HomeView',
@@ -35,15 +34,7 @@ export default defineComponent({
             ]
           }
         },
-        edit: {
-          menu: [
-            new DefaultEditButton({
-              prop: 'test',
-              name: '测试',
-              type: 'button'
-            })
-          ]
-        }
+        edit: {}
       }
     }
   },

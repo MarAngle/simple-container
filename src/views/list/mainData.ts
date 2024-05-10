@@ -1,8 +1,9 @@
 import listApi, { listItemType } from "@/api/main/listApi";
 import { ComplexList, SelectValue } from "complex-data";
-import DefaultEditButton from "complex-data/src/dictionary/DefaultEditButton";
+import ButtonEdit from "complex-data/src/dictionary/ButtonEdit";
 
 const select = new SelectValue({
+  cascade: undefined,
   list: [
     {
       value: 0,
@@ -32,7 +33,7 @@ const mainData = new ComplexList({
         list: [
           'build',
           'delete',
-          new DefaultEditButton({
+          new ButtonEdit({
             prop: 'choice2',
             type: 'button',
             option: {
@@ -50,7 +51,7 @@ const mainData = new ComplexList({
               }
             }
           }),
-          new DefaultEditButton({
+          new ButtonEdit({
             prop: '$import',
             type: 'button',
             option: {
@@ -85,10 +86,10 @@ const mainData = new ComplexList({
         {
           prop: 'multipleFile',
           name: '多文件',
-          format(value) {
+          assign(value) {
             return value ? (value as string).split(',') : []
           },
-          post(value) {
+          collect(value) {
             return value ? (value as string[]).join(',') : ''
           },
           mod: {
@@ -96,7 +97,6 @@ const mainData = new ComplexList({
               $format: 'edit',
               type: 'file',
               multiple: true,
-              required: true,
               option: {
                 upload(file) {
                   return new Promise((resolve) => {
@@ -116,9 +116,7 @@ const mainData = new ComplexList({
         },
         {
           prop: 'menu',
-          name: {
-            search: ''
-          },
+          name: '',
           mod: {
             search: {
               $format: 'edit',
@@ -204,10 +202,10 @@ const mainData = new ComplexList({
         {
           prop: 'switch',
           name: '开关',
-          format(value) {
+          assign(value) {
             return value === 1 ? true : false
           },
-          post(value) {
+          collect(value) {
             return value ? 1 : 0
           },
           mod: {
@@ -233,8 +231,8 @@ const mainData = new ComplexList({
             default: 'value',
             list: 'label'
           },
-          format(value) {
-            return select.get(value)
+          assign(value) {
+            return select.getItem(value)
           },
           mod: {
             list: {
@@ -293,11 +291,11 @@ const mainData = new ComplexList({
         {
           prop: 'multipleFile',
           name: '多文件',
-          format(value) {
+          assign(value) {
             return value ? (value as string).split(',') : []
           },
-          post(value) {
-            return value ? (value as string[]).join(',') : ''
+          collect(value) {
+            return value ? (value as string[]).join(',') : undefined
           },
           mod: {
             edit: {
@@ -391,6 +389,41 @@ const mainData = new ComplexList({
           }
         },
         {
+          prop: 'timeRange',
+          name: '时间范围',
+          parse(value) {
+            return (value as string).split(',')
+          },
+          mod: {
+            list: {
+              width: 300
+            },
+            edit: {
+              type: 'dateRange',
+              required: true,
+              option: {
+                time: {},
+                disabledDate: {
+                  start: {
+                    value: 'today',
+                    eq: true
+                  },
+                  end: {
+                    value: 'tomorrow',
+                    eq: true
+                  }
+                }
+              }
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
+        {
           prop: 'menu',
           name: '操作',
           mod: {
@@ -405,7 +438,7 @@ const mainData = new ComplexList({
   },
   getData(this: ComplexList) {
     return new Promise((resolve, reject) => {
-      const postData = this.getSearch() as any
+      const postData = { ...this.getSearch() } as any
       console.log(postData)
       postData.page = this.getPage()
       postData.size = this.getPageSize()

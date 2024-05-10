@@ -1,6 +1,6 @@
-import loginApi, { loginApiArg, userInfo } from "@/api/main/loginApi";
-import { getLocalData, setLocalData } from "complex-utils";
 import { reactive } from "vue";
+import { storage } from "complex-utils";
+import loginApi, { loginApiArg, userInfo } from "@/api/main/loginApi";
 
 const localKey = 'userInfo'
 
@@ -8,7 +8,7 @@ export class UserData{
   load: 'un' | 'ing' | 'success'
   data: Partial<userInfo>
   constructor() {
-    const localData = getLocalData(localKey)
+    const localData = storage.getData(localKey)
     if (localData) {
       this.data = localData
       this.load = 'success'
@@ -32,7 +32,7 @@ export class UserData{
   }
   setData(data?: userInfo) {
     this.data = data || {}
-    setLocalData(localKey, data)
+    storage.setData(localKey, data)
   }
 }
 
