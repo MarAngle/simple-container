@@ -476,14 +476,14 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
-"complex-component-antd@4.2.0-alpha.2 - 4.2.99":
-  version "4.2.0-alpha.2"
-  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.2.0-alpha.2.tgz#61be5bb32e8d5229471b1df73c2d515d304676c0"
-  integrity sha512-vcc7CoiYUO4oDwruIgx1pw+okEOhnL91bdbNebzu8PEl08aI8GXn1eSMnyIh2MeMky8ZULI+KsslPTVUicS/Ig==
+"complex-component-antd@4.2.0-alpha.3 - 4.2.99":
+  version "4.2.0-alpha.3"
+  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.2.0-alpha.3.tgz#ab691a451681b3ed9ae537d28b051e0751f36021"
+  integrity sha512-ekU9TrFwYPumjakk+Qp544iM7LPht+0EsrAClqIAjWzp+jRfdgOzB9wmymBSoSjrLoESNElIcSXhLF0saQjnqg==
   dependencies:
     ant-design-vue "^4.2.1"
     complex-component "4.2.0 - 4.2.99"
-    complex-data "4.2.3 - 4.2.99"
+    complex-data "4.2.9 - 4.2.99"
     complex-plugin "4.2.2 - 4.2.99"
 
 "complex-component@4.2.0 - 4.2.99":
@@ -494,10 +494,10 @@ combined-stream@^1.0.8:
     complex-data "4.2.1 - 4.2.99"
     complex-plugin "4.2.2 - 4.2.99"
 
-"complex-data@4.2.1 - 4.2.99", "complex-data@4.2.3 - 4.2.99", "complex-data@4.2.7 - 4.2.99":
-  version "4.2.7"
-  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.2.7.tgz#76879e5f9416f67ba206880afcd96a9ebd5a21c1"
-  integrity sha512-zpbo3V+AHzkHleblidwirQydv7E7LJ6svnRuBKmH1i5QeymHu3HR9zWVdDOwe7MTY3MYuOZrvd4y/nyesnZ+2g==
+"complex-data@4.2.1 - 4.2.99", "complex-data@4.2.9 - 4.2.99":
+  version "4.2.9"
+  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.2.9.tgz#682b9e2542ec5f3bb5d4793c88f7d3140027cb68"
+  integrity sha512-rpEQn/dc5Y13souLuskUnoSmwGmDgSgL2g96H8iDgQq1zD+GwO4i1TujtNlxFk5n5WWVHwUsuULQI951Nk/uSQ==
   dependencies:
     complex-utils "2.2.6 - 2.2.99"
 
