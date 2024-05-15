@@ -523,10 +523,10 @@ combined-stream@^1.0.8:
   dependencies:
     complex-plugin "4.2.3 - 4.2.99"
 
-"complex-utils@2.2.7 - 2.2.99":
-  version "2.2.7"
-  resolved "https://registry.npmjs.org/complex-utils/-/complex-utils-2.2.7.tgz#accf027c7f6d8b39ad87941fa508a2d113b2d7c1"
-  integrity sha512-ob9yYZvMWP0yQqqQ8zgOJV0esR3m6/2MxA5i36VH+2exdXiqd7Qpi9TcShEBNd6+F4B9C25li6aYVcdVSZ6GVw==
+"complex-utils@2.2.7 - 2.2.99", "complex-utils@2.2.8 - 2.2.99":
+  version "2.2.8"
+  resolved "https://registry.npmjs.org/complex-utils/-/complex-utils-2.2.8.tgz#25ce11e4ffb19d36ec263f82b24257b9b255ec48"
+  integrity sha512-nSOBmww+2cBtGXl6CZunVcFPuo3XfiUaujSrLSJlLCegCKVo/Vfw0eoTPSUrIYQYFa3UZEH4sUc0Exya/JLbhg==
 
 compute-scroll-into-view@^1.0.20:
   version "1.0.20"

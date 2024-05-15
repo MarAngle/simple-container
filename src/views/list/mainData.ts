@@ -152,7 +152,7 @@ const mainData = new ComplexList({
           originFrom: 'local',
           mod: {
             list: {
-              width: 50
+              width: 60
             }
           }
         },
@@ -223,7 +223,7 @@ const mainData = new ComplexList({
           },
           mod: {
             list: {
-              width: 60
+              width: 70
             },
             edit: {
               type: 'switch',
@@ -343,7 +343,7 @@ const mainData = new ComplexList({
           name: '日期',
           mod: {
             list: {
-              width: 100
+              width: 120
             },
             edit: {
               type: 'date',
@@ -404,7 +404,7 @@ const mainData = new ComplexList({
         {
           prop: 'timeRange',
           name: '时间范围',
-          parse(value) {
+          assign(value) {
             return (value as string).split(',')
           },
           mod: {
