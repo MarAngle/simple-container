@@ -39,7 +39,7 @@ const mainData = new ComplexList({
             option: {
               type: 'default',
               name: '已选择2条时可用',
-              disabled(payload) {
+              disabled(payload: any) {
                 return payload.choice != 2
               },
               click: () => {
@@ -137,8 +137,19 @@ const mainData = new ComplexList({
       },
       list: [
         {
+          prop: 'menu',
+          name: '操作',
+          originFrom: 'local',
+          mod: {
+            list: {
+              width: 140
+            }
+          }
+        },
+        {
           prop: '$index',
           name: 'No',
+          originFrom: 'local',
           mod: {
             list: {
               width: 50
@@ -151,7 +162,8 @@ const mainData = new ComplexList({
           mod: {
             list: {
               width: 80
-            }
+            },
+            info: {}
           }
         },
         {
@@ -161,6 +173,7 @@ const mainData = new ComplexList({
             list: {
               width: 100
             },
+            info: {},
             edit: {
               type: 'input',
               required: true,
@@ -420,15 +433,6 @@ const mainData = new ComplexList({
             },
             change: {
               $redirect: 'edit'
-            }
-          }
-        },
-        {
-          prop: 'menu',
-          name: '操作',
-          mod: {
-            list: {
-              width: 100
             }
           }
         },
