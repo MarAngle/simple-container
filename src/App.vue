@@ -16,7 +16,7 @@ export default defineComponent({
   },
   provide() {
     return {
-      pluginLayout: computed(() => pluginLayout)
+      providePluginLayout: computed(() => pluginLayout)
     }
   }
 })

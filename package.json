@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "ant-design-vue": "^4.2.1",
-    "complex-component-antd": "4.2.1 - 4.2.99",
-    "complex-data": "4.2.14 - 4.2.99",
-    "complex-plugin": "4.2.4 - 4.2.99",
-    "complex-request-axios": "0.3.3 - 0.3.99",
-    "complex-utils": "2.2.8 - 2.2.99",
+    "complex-component-antd": "4.2.3 - 4.2.99",
+    "complex-data": "4.2.19 - 4.2.99",
+    "complex-plugin": "4.2.6 - 4.2.99",
+    "complex-request-axios": "0.3.4 - 0.3.99",
+    "complex-utils": "2.2.9 - 2.2.99",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },

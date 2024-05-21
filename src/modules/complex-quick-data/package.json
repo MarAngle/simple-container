@@ -1,0 +1,26 @@
+{
+  "name": "complex-quick-data",
+  "version": "1.0.0",
+  "description": "a complex quick data",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarAngle/complex-quick-data.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "complex-data": "4.2.18 - 4.2.99"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "keywords": [
+    "complex",
+    "quick",
+    "data"
+  ],
+  "author": "MarAngle",
+  "license": "ISC"
+}

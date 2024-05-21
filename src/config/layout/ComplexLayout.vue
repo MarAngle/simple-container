@@ -73,7 +73,7 @@ export default defineComponent({
     ComplexLayoutHeader,
     ComplexLayoutSider
   },
-  inject: ['pluginLayout'],
+  inject: ['providePluginLayout'],
   data() {
     return {
       dependData: dependData
@@ -81,10 +81,10 @@ export default defineComponent({
   },
   computed: {
     siderWidth() {
-      return config.formatPixel((this.pluginLayout as PluginLayout).mod.sider.width!)
+      return config.formatPixel((this.providePluginLayout as PluginLayout).mod.sider.width!)
     },
     headerHeight() {
-      return config.formatPixel((this.pluginLayout as PluginLayout).mod.header.height!)
+      return config.formatPixel((this.providePluginLayout as PluginLayout).mod.header.height!)
     },
     logoStyle() {
       return {
@@ -105,7 +105,7 @@ export default defineComponent({
       }
     },
     pageStyle() {
-      if ((this.pluginLayout as PluginLayout).type === 'default' && this.dependData.load === 'success') {
+      if ((this.providePluginLayout as PluginLayout).type === 'default' && this.dependData.load === 'success') {
         return {
           paddingLeft: this.siderWidth,
           paddingTop: this.headerHeight

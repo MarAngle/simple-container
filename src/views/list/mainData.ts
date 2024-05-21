@@ -3,7 +3,6 @@ import { ComplexList, SelectValue } from "complex-data";
 import ButtonEdit from "complex-data/src/dictionary/ButtonEdit";
 
 const select = new SelectValue({
-  cascade: undefined,
   list: [
     {
       value: 0,
@@ -253,15 +252,14 @@ const mainData = new ComplexList({
             },
             edit: {
               type: 'select',
+              cascader: undefined,
               required: true,
-              option: {
-                list: []
-              },
+              select: select,
               pagination: {},
               getData(this: any) {
                 return new Promise((resolve) => {
                   setTimeout(() => {
-                    this.$option.list = select.getList()
+                    this.$select.setList(select.getList())
                     this.$pagination.setCount(100)
                     resolve({})
                   }, 200)
