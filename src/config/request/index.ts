@@ -41,7 +41,7 @@ const request = new AxiosRequest({
       refresh() {
         return Promise.reject({ status: 'fail' })
       },
-      format (response) {
+      parse (response) {
         const res: responseType = {
           status: 'fail'
         } as responseType
