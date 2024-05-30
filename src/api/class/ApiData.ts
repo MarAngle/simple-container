@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios'
-import { getEnv, isCompleteUrl } from 'complex-utils'
+import { deepCloneData, getEnv, isCompleteUrl } from 'complex-utils'
 import { responseType } from 'complex-request/src/Rule'
 import { Data } from 'complex-data'
 import request, { RequestConfigType } from '@/config/request'
@@ -107,7 +107,7 @@ class ApiData<A extends unknown[] = unknown[], R extends responseType = response
     }
     // 准备模拟请求
     requestConfig.url = request.formatUrl(requestConfig.url!)
-    return Promise.resolve(request.$getRule(requestConfig.url)!.parse({ data: this.mock(requestConfig) } as AxiosResponse, requestConfig as RequestConfigType)) as Promise<R>
+    return Promise.resolve(request.$getRule(requestConfig.url)!.parse({ data: deepCloneData(this.mock(requestConfig)) } as AxiosResponse, requestConfig as RequestConfigType)) as Promise<R>
   }
 }
 

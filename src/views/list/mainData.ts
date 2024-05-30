@@ -403,7 +403,11 @@ const mainData = new ComplexList({
           prop: 'timeRange',
           name: '时间范围',
           assign(value) {
+            console.log(value)
             return (value as string).split(',')
+          },
+          collect(value) {
+            return (value as string[]).join(',')
           },
           mod: {
             list: {

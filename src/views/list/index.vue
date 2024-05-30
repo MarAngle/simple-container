@@ -1,19 +1,19 @@
 <template>
   <div class="home">
-    <ComplexListView :list-data="mainData" :components="['spin', 'search', 'table', 'info', 'edit']" :simple-table="true" :components-props="componentsProps" />
+    <ComplexQuickList :list-data="mainData" :components="['spin', 'search', 'table', 'info', 'edit']" :simple-table="true" :components-props="componentsProps" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import mainData from './mainData';
-import { ComplexListView } from '@/modules/complex-component-antd';
-import { componentsProps } from '@/modules/complex-component-antd/src/ListView';
+import { ComplexQuickList } from '@/modules/complex-component-antd';
+import { componentsProps } from '@/modules/complex-component-antd/src/QuickList';
 
 export default defineComponent({
   name: 'HomeView',
   components: {
-    ComplexListView
+    ComplexQuickList
   },
   setup() {
     return {

@@ -23,14 +23,14 @@
     "@ant-design/icons-svg" "^4.2.1"
 
 "@babel/parser@^7.24.4":
-  version "7.24.5"
-  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.24.5.tgz#4a4d5ab4315579e5398a82dcf636ca80c3392790"
-  integrity sha512-EOv5IK8arwh3LI47dz1b0tKUb/1uhHAnHJOrjgtQMIpu1uXd9mlFrJg9IUgGUgZ41Ch0K8REPTYpO7B76b4vJg==
+  version "7.24.6"
+  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.24.6.tgz#5e030f440c3c6c78d195528c3b688b101a365328"
+  integrity sha512-eNZXdfU35nJC2h24RznROuOpO94h6x8sg9ju0tT9biNtLZ2vuP8SduLqqV+/8+cebSLV9SJEAN5Z3zQbJG/M+Q==
 
 "@babel/runtime@^7.10.5":
-  version "7.24.5"
-  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.24.5.tgz#230946857c053a36ccc66e1dd03b17dd0c4ed02c"
-  integrity sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==
+  version "7.24.6"
+  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.24.6.tgz#5b76eb89ad45e2e4a0a8db54c456251469a3358e"
+  integrity sha512-Ja18XcETdEl5mzzACGd+DKgaGJzPTCow7EglgwTmHdwokzDFYh/MHua6lU6DV/hjF2IaOJ4oX2nqnjG7RElKOw==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -273,9 +273,9 @@
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
 "@types/node@^20.11.3":
-  version "20.12.12"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.12.12.tgz#7cbecdf902085cec634fdb362172dfe12b8f2050"
-  integrity sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==
+  version "20.12.13"
+  resolved "https://registry.npmjs.org/@types/node/-/node-20.12.13.tgz#90ed3b8a4e52dd3c5dc5a42dde5b85b74ad8ed88"
+  integrity sha512-gBGeanV41c1L171rR7wjbMiEpEI/l5XFQdLLfhr/REwpgDy/4U8y89+i8kRiLzDyZdOkXh+cRaTetUnCYutoXA==
   dependencies:
     undici-types "~5.26.4"
 
@@ -476,30 +476,30 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
-"complex-component-antd@4.2.8 - 4.2.99":
-  version "4.2.8"
-  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.2.8.tgz#7ea41f723188f80f30486f997ac20c5ade3a7358"
-  integrity sha512-ZcnaOsi7JVXf3OOnXqc3jsH/IoBUPkF2CRLWGcKqriU4gK0Ibto5iPlzqRYI6rua00c1W/GZLkF6UPbYD/UuDw==
+"complex-component-antd@4.3.1 - 4.3.99":
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.3.1.tgz#6c18ae574fa3aba3e0529773f851e324344bbf6b"
+  integrity sha512-2kb36TrjWLY5oyXNXo3wZUSQ2ZKx8esdoeTEbUkEPZ+BVOlBai+WnSYinpgcTKxZr2OqlaOIjmFHnoXFZibJjg==
   dependencies:
     ant-design-vue "^4.2.1"
-    complex-component "4.2.3 - 4.2.99"
-    complex-data "4.2.23 - 4.2.99"
+    complex-component "4.3.1 - 4.3.99"
+    complex-data "4.3.2 - 4.3.99"
     complex-plugin "4.2.7 - 4.2.99"
 
-"complex-component@4.2.3 - 4.2.99":
-  version "4.2.3"
-  resolved "https://registry.npmjs.org/complex-component/-/complex-component-4.2.3.tgz#e884fc5d62bb45a660544b19b38c7f6d00cf2a2e"
-  integrity sha512-uAdlQygVIX4dwO0+jqeRaSP+Lsr2Cl/2f4yhkgdUwpCK9zLYRoolZbHA53VtFM6RBmgxQrQ8hpxvhn1jz5/lTQ==
+"complex-component@4.3.1 - 4.3.99":
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/complex-component/-/complex-component-4.3.1.tgz#468f8e8b3e0cd7a7d62a6a43eb82765cbfd34719"
+  integrity sha512-dweuAFlqKNsiDSanIRj3M82AjjmsKj6EjhWxPdXUeS/hgwt9DeNF7QL8auNFlsCUIPF794d/xqNVvxtNiidKTA==
   dependencies:
-    complex-data "4.2.23 - 4.2.99"
+    complex-data "4.3.1 - 4.3.99"
     complex-plugin "4.2.7 - 4.2.99"
 
-"complex-data@4.2.23 - 4.2.99":
-  version "4.2.23"
-  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.2.23.tgz#5db383e3e41866deece93d7e632dd636870d7ca1"
-  integrity sha512-Oq65ATT2Muq61opP/d65eEzJT+i15/aedENlli1+S/j2gIW5F59ZmowtLCCUkNpZqcxapwjWiQDi/AENIdborA==
+"complex-data@4.3.1 - 4.3.99", "complex-data@4.3.2 - 4.3.99":
+  version "4.3.2"
+  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.3.2.tgz#3810ba8cc87aaaa71d3af7aed4ec10a3c4966919"
+  integrity sha512-gAUvrkvnQGHI5SfbENAdke1OI5qEXNSwt52LFyzw4rZBD4aM9dJFiNuzZmpBXZFI/qOZuSbcMGr2v3UAKwcubQ==
   dependencies:
-    complex-utils "2.2.11 - 2.2.99"
+    complex-utils "2.2.14 - 2.2.99"
 
 "complex-plugin@4.2.7 - 4.2.99":
   version "4.2.7"
@@ -523,10 +523,10 @@ combined-stream@^1.0.8:
   dependencies:
     complex-plugin "4.2.7 - 4.2.99"
 
-"complex-utils@2.2.11 - 2.2.99":
-  version "2.2.11"
-  resolved "https://registry.npmjs.org/complex-utils/-/complex-utils-2.2.11.tgz#9bbab542ce1cd338bc021ecbd09f9381743536f2"
-  integrity sha512-tvqcvg20KRlH2xoUS/+4l9FD5kyPNYe7LHJf4axGaPxkLbzMDSipKRqs4w9H1PRE7b8nq4TiGAAQQ94H1UP4aQ==
+"complex-utils@2.2.11 - 2.2.99", "complex-utils@2.2.13 - 2.2.99", "complex-utils@2.2.14 - 2.2.99":
+  version "2.2.14"
+  resolved "https://registry.npmjs.org/complex-utils/-/complex-utils-2.2.14.tgz#e1dd3fea1a5caf202f9edd95c568171aca13df9d"
+  integrity sha512-L8xAtDBPD1U3EEiLn/g05ZI2PWpMhgRQ1fA/Ej7IHwxyiQuVJkVvmh9oTyIytk26+XJ7WTEqrWJhHwiNx8MFsQ==
 
 compute-scroll-into-view@^1.0.20:
   version "1.0.20"
@@ -833,9 +833,9 @@ util-deprecate@^1.0.2:
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
 vite@^5.0.8:
-  version "5.2.11"
-  resolved "https://registry.npmjs.org/vite/-/vite-5.2.11.tgz#726ec05555431735853417c3c0bfb36003ca0cbd"
-  integrity sha512-HndV31LWW05i1BLPMUCE1B9E9GFbOu1MbenhS58FuK6owSO5qHm7GiCotrNY1YE5rMeQSFBGmT5ZaLEjFizgiQ==
+  version "5.2.12"
+  resolved "https://registry.npmjs.org/vite/-/vite-5.2.12.tgz#3536c93c58ba18edea4915a2ac573e6537409d97"
+  integrity sha512-/gC8GxzxMK5ntBwb48pR32GGhENnjtY30G4A0jemunsBkiEZFw60s8InGpN8gkhHEkjnRK1aSAxeQgwvFhUHAA==
   dependencies:
     esbuild "^0.20.1"
     postcss "^8.4.38"
