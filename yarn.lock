@@ -273,9 +273,9 @@
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
 "@types/node@^20.11.3":
-  version "20.14.0"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.14.0.tgz#49ceec7b34f8621470cff44677fa9d461a477f17"
-  integrity sha512-5cHBxFGJx6L4s56Bubp4fglrEpmyJypsqI6RgzMfBHWUJQGWAAi8cWcgetEbZXHYXo9C2Fa4EEds/uSyS4cxmA==
+  version "20.14.1"
+  resolved "https://registry.npmjs.org/@types/node/-/node-20.14.1.tgz#2434dbcb1f039e31f2c0e9969da93f52cf6348f3"
+  integrity sha512-T2MzSGEu+ysB/FkWfqmhV3PLyQlowdptmmgD20C6QxsS8Fmv5SjpZ1ayXaEC0S21/h5UJ9iA6W/5vSNU5l00OA==
   dependencies:
     undici-types "~5.26.4"
 
@@ -349,9 +349,9 @@
     "@vue/shared" "3.4.27"
 
 "@vue/devtools-api@^6.5.1":
-  version "6.6.2"
-  resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.6.2.tgz#a5a17377ca810c7f0153232ff1dcfa25bd5694be"
-  integrity sha512-134clD8u7cBBXdmBbXI282gHGF7T/eAbD/G7mAK2llQF62IbI4ny28IVamZVMoJSvfImC2Xxnj732hXkJvUj6g==
+  version "6.6.3"
+  resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.6.3.tgz#b23a588154cba8986bba82b6e1d0248bde3fd1a0"
+  integrity sha512-0MiMsFma/HqA6g3KLKn+AGpL1kgKhFWszC9U29NfpWK5LE7bjeXxySWJrOJ77hBz+TBrBQ7o4QJqbPbqbs8rJw==
 
 "@vue/language-core@1.8.27":
   version "1.8.27"
@@ -476,28 +476,28 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
-"complex-component-antd@4.3.2 - 4.3.99":
-  version "4.3.2"
-  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.3.2.tgz#fbbe57930db597a2b22e2cbad2be9082064fc007"
-  integrity sha512-AiYkfUjG2fxNeDFCQWeq2lsomX+6nGhYGyzEZun7GFpOwawt7GQBkNUy5Vn7fnQtBkMUWHfIdZpLuMN3TOHMrA==
+"complex-component-antd@4.3.4 - 4.3.99":
+  version "4.3.4"
+  resolved "https://registry.npmjs.org/complex-component-antd/-/complex-component-antd-4.3.4.tgz#dac5b7c362f10ce7998f5c6c2e5328c6f234d182"
+  integrity sha512-ikyNXdSsxrWF/OGvZ+C01mouTGK6BpbalOwTtAP7Fmob30+jdnbi0l309YMX0vU0izqIO5qqK0+tHnqNJyh30w==
   dependencies:
     ant-design-vue "^4.2.1"
-    complex-component "4.3.1 - 4.3.99"
-    complex-data "4.3.2 - 4.3.99"
+    complex-component "4.3.2 - 4.3.99"
+    complex-data "4.3.9 - 4.3.99"
     complex-plugin "4.2.7 - 4.2.99"
 
-"complex-component@4.3.1 - 4.3.99":
-  version "4.3.1"
-  resolved "https://registry.npmjs.org/complex-component/-/complex-component-4.3.1.tgz#468f8e8b3e0cd7a7d62a6a43eb82765cbfd34719"
-  integrity sha512-dweuAFlqKNsiDSanIRj3M82AjjmsKj6EjhWxPdXUeS/hgwt9DeNF7QL8auNFlsCUIPF794d/xqNVvxtNiidKTA==
+"complex-component@4.3.2 - 4.3.99":
+  version "4.3.2"
+  resolved "https://registry.npmjs.org/complex-component/-/complex-component-4.3.2.tgz#7b083fd8aeecc652e7ba82ab673663644df46d04"
+  integrity sha512-6uMaQErLQUv+CxW+nI/RW5O8QKNxIgrjVn+lUOGbtO9GgcSXxrouFg90hbbzgaUvN3GZDjCAOG/jrjWd9XCGbA==
   dependencies:
-    complex-data "4.3.1 - 4.3.99"
+    complex-data "4.3.9 - 4.3.99"
     complex-plugin "4.2.7 - 4.2.99"
 
-"complex-data@4.3.1 - 4.3.99", "complex-data@4.3.2 - 4.3.99", "complex-data@4.3.3 - 4.3.99":
-  version "4.3.3"
-  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.3.3.tgz#8107efa857dfbe86bd564b277b2df65ceefc1e59"
-  integrity sha512-ED4JcDQrkMWcALRIcOXbUQzXt7DyTXu6cJlQ2gwnl3TkP8DCZfpw1b9BeN8Ohzvjwij6ib+mqi926tAdldsOUA==
+"complex-data@4.3.9 - 4.3.99":
+  version "4.3.9"
+  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.3.9.tgz#192e9945badd59f741d81df0aef03e83b2019494"
+  integrity sha512-WVE8PI2RgrDNIhrU9RZx2nEm9T2rByKk2s1SJZgXMJlsGHmeqHiuq6/AD0ZDk5FV0m900wbAIx7gm0ukO18QLQ==
   dependencies:
     complex-utils "2.2.14 - 2.2.99"
 

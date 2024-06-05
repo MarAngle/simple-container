@@ -438,6 +438,127 @@ const mainData = new ComplexList({
             }
           }
         },
+        {
+          prop: 'form',
+          name: '内嵌表单',
+          assign(value) {
+            return value || {
+              name: 'a',
+              date: '2019-05-18'
+            }
+          },
+          collect(value) {
+            return value
+          },
+          dictionray: {
+            // layout: {
+            //   grid: {
+            //     default: {
+            //       line: 1,
+            //       label: 8,
+            //       content: 16
+            //     }
+            //   }
+            // },
+            list: [
+              {
+                prop: 'name',
+                name: '名称',
+                collect(value) {
+                  console.log(value)
+                  return value
+                },
+                mod: {
+                  list: {
+                    width: 120
+                  },
+                  info: {
+                    $redirect: 'edit'
+                  },
+                  edit: {
+                    type: 'input',
+                    required: true
+                  },
+                  build: {
+                    $redirect: 'edit'
+                  },
+                  change: {
+                    $redirect: 'edit'
+                  }
+                }
+              },
+              {
+                prop: 'date',
+                name: '日期',
+                mod: {
+                  list: {
+                    width: 120
+                  },
+                  info: {
+                    $redirect: 'edit'
+                  },
+                  edit: {
+                    type: 'date',
+                    required: true,
+                    option: {
+                      disabledDate: {
+                        start: {
+                          value: 'today',
+                          eq: true
+                        },
+                        end: {
+                          value: 'tomorrow',
+                          eq: true
+                        }
+                      }
+                    }
+                  },
+                  build: {
+                    $redirect: 'edit'
+                  },
+                  change: {
+                    $redirect: 'edit'
+                  }
+                }
+              },
+            ]
+          },
+          mod: {
+            list: {
+              width: 300
+            },
+            info: {
+              $redirect: 'edit'
+            },
+            edit: {
+              grid: {
+                line: 1,
+                custom(data, position, gridParse) {
+                  if (position === 'label') {
+                    return {
+                      span: 0
+                    }
+                  } else if (position === 'content') {
+                    return {
+                      span: 24
+                    }
+                  } else {
+                    return data
+                  }
+                }
+              },
+              type: 'form',
+              required: true,
+              option: {}
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
       ]
     },
     pagination: true
@@ -472,6 +593,7 @@ const mainData = new ComplexList({
   changeData(this: ComplexList, targetData, originData) {
     return new Promise((resolve, reject) => {
       targetData.id = originData.id
+      console.log(targetData)
       listApi.change.require(targetData as listItemType).then(res => {
         console.log(res.data.data)
         this.reloadData(true)
