@@ -23,14 +23,14 @@
     "@ant-design/icons-svg" "^4.2.1"
 
 "@babel/parser@^7.24.4":
-  version "7.24.6"
-  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.24.6.tgz#5e030f440c3c6c78d195528c3b688b101a365328"
-  integrity sha512-eNZXdfU35nJC2h24RznROuOpO94h6x8sg9ju0tT9biNtLZ2vuP8SduLqqV+/8+cebSLV9SJEAN5Z3zQbJG/M+Q==
+  version "7.24.7"
+  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.24.7.tgz#9a5226f92f0c5c8ead550b750f5608e766c8ce85"
+  integrity sha512-9uUYRm6OqQrCqQdG1iCBwBPZgN8ciDBro2nIOFaiRz1/BCxaI7CNvQbDHvsArAC7Tw9Hda/B3U+6ui9u4HWXPw==
 
 "@babel/runtime@^7.10.5":
-  version "7.24.6"
-  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.24.6.tgz#5b76eb89ad45e2e4a0a8db54c456251469a3358e"
-  integrity sha512-Ja18XcETdEl5mzzACGd+DKgaGJzPTCow7EglgwTmHdwokzDFYh/MHua6lU6DV/hjF2IaOJ4oX2nqnjG7RElKOw==
+  version "7.24.7"
+  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.24.7.tgz#f4f0d5530e8dbdf59b3451b9b3e594b6ba082e12"
+  integrity sha512-UwgBRMjJP+xv857DCngvqXI3Iq6J4v0wXmwc6sapg+zyhbwmQX67LUEFrkK5tbyJ30jGuG3ZvWpBiB9LCy1kWw==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -273,9 +273,9 @@
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
 "@types/node@^20.11.3":
-  version "20.14.1"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.14.1.tgz#2434dbcb1f039e31f2c0e9969da93f52cf6348f3"
-  integrity sha512-T2MzSGEu+ysB/FkWfqmhV3PLyQlowdptmmgD20C6QxsS8Fmv5SjpZ1ayXaEC0S21/h5UJ9iA6W/5vSNU5l00OA==
+  version "20.14.2"
+  resolved "https://registry.npmjs.org/@types/node/-/node-20.14.2.tgz#a5f4d2bcb4b6a87bffcaa717718c5a0f208f4a18"
+  integrity sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==
   dependencies:
     undici-types "~5.26.4"
 
@@ -406,9 +406,9 @@
   integrity sha512-DL3NmY2OFlqmYYrzp39yi3LDkKxa5vZVwxWdQ3rG0ekuWscHraeIbnI8t+aZK7qhYqEqWKTUdijadunb9pnrgA==
 
 ant-design-vue@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-4.2.1.tgz#c44d55461b3d57ecfd2fea54c36b584d271804da"
-  integrity sha512-3u6fmfCEJ5AFTsYhogP8lJ/vcqiAJO16o+gGQkWYRGLl0NxmY4hje4cPyv+pcxpeJgcG0vNEmkb1vVHKcnxd+g==
+  version "4.2.2"
+  resolved "https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-4.2.2.tgz#4e8f8f55aea4d68c6c7a64fe703ce5c0af959ede"
+  integrity sha512-6Mg63//f8+5rE/yZEv7lfzGn8IXr0lPyhNNLAxJ/7Mc4lq1SiDJcHxR2gGEaNZxFzz/gHoryqBVhUxkMX7EOhA==
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@ant-design/icons-vue" "^7.0.0"
@@ -494,10 +494,10 @@ combined-stream@^1.0.8:
     complex-data "4.3.9 - 4.3.99"
     complex-plugin "4.2.7 - 4.2.99"
 
-"complex-data@4.3.9 - 4.3.99":
-  version "4.3.9"
-  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.3.9.tgz#192e9945badd59f741d81df0aef03e83b2019494"
-  integrity sha512-WVE8PI2RgrDNIhrU9RZx2nEm9T2rByKk2s1SJZgXMJlsGHmeqHiuq6/AD0ZDk5FV0m900wbAIx7gm0ukO18QLQ==
+"complex-data@4.3.10 - 4.3.99", "complex-data@4.3.9 - 4.3.99":
+  version "4.3.10"
+  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.3.10.tgz#02440a675b78b1a48bd954be632e5c13583cf6a6"
+  integrity sha512-/db7dvglByGK6owfzdQtbfMCCxAFf2W4FIxtUxbnS9G4/QHokaJ9qiZKNR61z/3OiweazRLd0tkRN7OZu16r3A==
   dependencies:
     complex-utils "2.2.14 - 2.2.99"
 
