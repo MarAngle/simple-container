@@ -488,17 +488,17 @@ combined-stream@^1.0.8:
     complex-plugin "4.2.7 - 4.2.99"
 
 "complex-component@4.3.4 - 4.3.99":
-  version "4.3.4"
-  resolved "https://registry.npmjs.org/complex-component/-/complex-component-4.3.4.tgz#4a62ad706baf780f77491dfe94cfc7d43a05492c"
-  integrity sha512-Y/L4pocwESEE/5KHhdlCh6zHvLZw9K78BPfekc4rb6gXr8vHXs7k8Fhdgfezi5eK4NKldmOWGdB2u6DgfiMY0w==
+  version "4.3.5"
+  resolved "https://registry.npmjs.org/complex-component/-/complex-component-4.3.5.tgz#fe6125ea884336ebde9255d9bfd273ec9bf65f7f"
+  integrity sha512-ZXEFlNajNHMUxUaIhcEhEgVtBfMA1JYSiJwFDYnUZYJJEysozMOVO1Y8Ub+cqhEM70ox7QmtzTdn4p14ujZpnw==
   dependencies:
-    complex-data "4.3.23 - 4.3.99"
+    complex-data "4.3.26 - 4.3.99"
     complex-plugin "4.2.7 - 4.2.99"
 
-"complex-data@4.3.23 - 4.3.99", "complex-data@4.3.25 - 4.3.99":
-  version "4.3.25"
-  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.3.25.tgz#0570dd6ebfa873ad7279825241727817e6566357"
-  integrity sha512-8E3CZT6ABfp++lS5I8ead7/t+ri8p+Or7Dyy6XmMUqOHZJg6Nn7s9z3fUy1/n3IpZKwNPO1zOeL2Kmo1C3So5A==
+"complex-data@4.3.25 - 4.3.99", "complex-data@4.3.26 - 4.3.99", "complex-data@4.3.27 - 4.3.99":
+  version "4.3.27"
+  resolved "https://registry.npmjs.org/complex-data/-/complex-data-4.3.27.tgz#9222ca285e7997de301de7eaed1ab7ac5e64c12d"
+  integrity sha512-ktN4PtaFCpKk1H8WqqxvUivMRtLQ4Y450oL7ItZgy8E/foaIVxRXoXniMH4rkEgfvyUrbZcHc5hOAKMaDl6ZGg==
   dependencies:
     complex-utils "2.2.14 - 2.2.99"
 
