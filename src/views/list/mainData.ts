@@ -1,6 +1,8 @@
-import listApi, { listItemType } from "@/api/main/listApi";
-import { ComplexList, SelectValue } from "complex-data";
-import ButtonEdit from "complex-data/src/dictionary/ButtonEdit";
+import listApi, { listItemType } from "@/api/main/listApi"
+import { isFile } from "complex-utils"
+import { ComplexList, SelectValue } from "complex-data"
+import ButtonEdit from "complex-data/src/dictionary/ButtonEdit"
+import { fileDataType } from "complex-data/type"
 
 const select = new SelectValue({
   list: [
@@ -57,7 +59,7 @@ const mainData = new ComplexList({
               type: 'default',
               name: '导入',
               icon: 'upload',
-              upload: (file) => {
+              upload: () => {
                 return new Promise((resolve) => {
                   setTimeout(() => {
                     resolve({})
@@ -97,12 +99,13 @@ const mainData = new ComplexList({
               type: 'file',
               multiple: true,
               option: {
-                upload(file) {
+                multiple: {},
+                upload(file: File[]): Promise<{ file: fileDataType[] }> {
                   return new Promise((resolve) => {
                     setTimeout(() => {
-                      resolve({ file: (file as File[]).map(item => {
+                      resolve({ file: (file).map(item => {
                         return {
-                          data: item.name,
+                          value: item.name,
                           name: item.name
                         }
                       }) })
@@ -277,19 +280,22 @@ const mainData = new ComplexList({
         {
           prop: 'file',
           name: '文件',
+          collect(value) {
+            return isFile(value) ? value.name : value
+          },
           mod: {
             edit: {
               type: 'file',
               required: true,
-              option: {
-                upload(file) {
-                  return new Promise((resolve) => {
-                    setTimeout(() => {
-                      resolve({ file: { data: (file as File).name, name: (file as File).name  } })
-                    }, 500)
-                  })
-                },
-              }
+              // option: {
+              //   upload(file: File): Promise<{ file: fileDataType }> {
+              //     return new Promise((resolve) => {
+              //       setTimeout(() => {
+              //         resolve({ file: { data: (file as File).name, name: (file as File).name  } })
+              //       }, 500)
+              //     })
+              //   },
+              // }
             },
             build: {
               $redirect: 'edit'
@@ -306,27 +312,29 @@ const mainData = new ComplexList({
             return value ? (value as string).split(',') : []
           },
           collect(value) {
-            return value ? (value as string[]).join(',') : undefined
+            if (value) {
+              return (value as any[]).map(item => isFile(item) ? item.name : item).join(',')
+            }
           },
           mod: {
             edit: {
               type: 'file',
               multiple: true,
               required: true,
-              option: {
-                upload(file) {
-                  return new Promise((resolve) => {
-                    setTimeout(() => {
-                      resolve({ file: (file as File[]).map(item => {
-                        return {
-                          data: item.name,
-                          name: item.name
-                        }
-                      }) })
-                    }, 500)
-                  })
-                },
-              }
+              // option: {
+              //   upload(file) {
+              //     return new Promise((resolve) => {
+              //       setTimeout(() => {
+              //         resolve({ file: (file as File[]).map(item => {
+              //           return {
+              //             data: item.name,
+              //             name: item.name
+              //           }
+              //         }) })
+              //       }, 500)
+              //     })
+              //   },
+              // }
             },
             build: {
               $redirect: 'edit'
@@ -580,6 +588,7 @@ const mainData = new ComplexList({
   },
   buildData(this: ComplexList, targetData) {
     return new Promise((resolve, reject) => {
+      console.log(targetData)
       listApi.build.require(targetData).then(res => {
         console.log(res.data.data.id)
         this.reloadData(true)
