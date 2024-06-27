@@ -107,7 +107,7 @@ class ApiData<A extends unknown[] = unknown[], R extends responseType = response
     }
     // 准备模拟请求
     requestConfig.url = request.formatUrl(requestConfig.url!)
-    return Promise.resolve(request.$getRule(requestConfig.url)!.parse({ data: deepCloneData(this.mock(requestConfig)) } as AxiosResponse, requestConfig as RequestConfigType)) as Promise<R>
+    return Promise.resolve(request.rule!.parse({ data: deepCloneData(this.mock(requestConfig)) } as AxiosResponse, requestConfig as RequestConfigType)) as Promise<R>
   }
 }
 
