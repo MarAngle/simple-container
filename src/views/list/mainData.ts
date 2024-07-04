@@ -1,6 +1,6 @@
 import listApi, { listItemType } from "@/api/main/listApi"
 import { isFile } from "complex-utils"
-import { ComplexList, SelectValue } from "complex-data"
+import { ComplexList, SelectEdit, SelectValue } from "complex-data"
 import ButtonEdit from "complex-data/src/dictionary/ButtonEdit"
 import { fileDataType } from "complex-data/type"
 
@@ -80,6 +80,55 @@ const mainData = new ComplexList({
               type: 'input',
               option: {
                 size: 20
+              }
+            }
+          }
+        },
+        {
+          prop: 'search',
+          name: '检索框',
+          mod: {
+            search: {
+              $format: 'edit',
+              type: 'select',
+              cascader: undefined,
+              width: 100,
+              option: {
+                search: {
+                  reload: true
+                }
+              },
+              // local: {
+              //   target: {
+              //     props: {
+              //       showSearch: true
+              //     },
+              //     on: {
+              //       search(...args: any[]) {
+              //         console.log(...args)
+              //       }
+              //     }
+              //   }
+              // },
+              getData(this: SelectEdit) {
+                return new Promise((resolve) => {
+                  // console.log('getData', this.$search?.value)
+                  this.$select.setList([
+                    {
+                      value: this.$search?.value,
+                      label: this.$search?.value || '',
+                    },
+                    {
+                      value: 1,
+                      label: '1',
+                    },
+                    {
+                      value: 2,
+                      label: '2',
+                    },
+                  ])
+                  resolve({})
+                })
               }
             }
           }
