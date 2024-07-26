@@ -1,3 +1,14 @@
+<style>
+.home{
+  background-color: #ccc;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+}
+.complex-table{
+  background-color: #fff;
+}
+</style>
 <template>
   <div class="home">
     <ComplexQuickList :list-data="mainData" :components="['spin', 'search', 'table', 'info', 'edit']" :simple-table="true" :components-props="componentsProps" />
@@ -40,7 +51,13 @@ export default defineComponent({
             ]
           }
         },
-        edit: {}
+        edit: {},
+        // search: {
+        //   collapse: true
+        // },
+        searchCollapse: {
+          height: 81
+        }
       } as componentsProps
     }
   },

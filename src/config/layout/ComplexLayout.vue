@@ -58,13 +58,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { PluginLayout } from 'complex-plugin'
+import { defineComponent, inject } from 'vue'
 import config from 'complex-data/config'
 import dependData from '@/config/data/dependData'
 import ComplexLayoutLogo from './ComplexLayoutLogo.vue'
 import ComplexLayoutHeader from './ComplexLayoutHeader.vue'
 import ComplexLayoutSider from './ComplexLayoutSider.vue'
+import { pluginLayoutKey } from '../provide'
 
 export default defineComponent({
   name: 'ComplexLayout',
@@ -73,18 +73,19 @@ export default defineComponent({
     ComplexLayoutHeader,
     ComplexLayoutSider
   },
-  inject: ['providePluginLayout'],
-  data() {
+  setup() {
+    const providePluginLayout = inject(pluginLayoutKey)!
     return {
-      dependData: dependData
+      dependData: dependData,
+      providePluginLayout
     }
   },
   computed: {
     siderWidth() {
-      return config.formatPixel((this.providePluginLayout as PluginLayout).mod.sider.width!)
+      return config.formatPixel(this.providePluginLayout.data.sider.width!)
     },
     headerHeight() {
-      return config.formatPixel((this.providePluginLayout as PluginLayout).mod.header.height!)
+      return config.formatPixel(this.providePluginLayout.data.header.height!)
     },
     logoStyle() {
       return {
@@ -105,7 +106,7 @@ export default defineComponent({
       }
     },
     pageStyle() {
-      if ((this.providePluginLayout as PluginLayout).type === 'default' && this.dependData.load === 'success') {
+      if (this.providePluginLayout.type === 'default' && this.dependData.load === 'success') {
         return {
           paddingLeft: this.siderWidth,
           paddingTop: this.headerHeight

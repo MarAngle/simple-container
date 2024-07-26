@@ -71,7 +71,7 @@ export class MenuData extends BaseData{
   }
   toggleCollapsed() {
     this.collapsed = !this.collapsed
-    pluginLayout.mod.sider.onChange()
+    pluginLayout.triggerChange('sider')
   }
 }
 

@@ -7,13 +7,13 @@ const getSiderWidth = function() {
 }
 
 PluginLayout.$format = function(data) {
-  return reactive(data)
+  return reactive(data) as PluginLayout
 }
 
 const pluginLayout = new PluginLayout({
   sider: reactive({
     width: getSiderWidth(),
-    change() {
+    onChange() {
       this.width = getSiderWidth()
     }
   }),

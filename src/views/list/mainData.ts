@@ -30,6 +30,7 @@ const mainData = new ComplexList({
   module: {
     choice: {},
     search: {
+      // collapse: false,
       menu: {
         list: [
           'build',
@@ -78,6 +79,7 @@ const mainData = new ComplexList({
             search: {
               $format: 'edit',
               type: 'input',
+              collapse: 2,
               option: {
                 size: 20
               }
@@ -93,23 +95,8 @@ const mainData = new ComplexList({
               type: 'select',
               cascader: undefined,
               width: 100,
-              option: {
-                search: {
-                  reload: true
-                }
-              },
-              // local: {
-              //   target: {
-              //     props: {
-              //       showSearch: true
-              //     },
-              //     on: {
-              //       search(...args: any[]) {
-              //         console.log(...args)
-              //       }
-              //     }
-              //   }
-              // },
+              reload: true,
+              search: {},
               getData(this: SelectEdit) {
                 return new Promise((resolve) => {
                   // console.log('getData', this.$search?.value)
