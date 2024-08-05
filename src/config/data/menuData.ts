@@ -47,6 +47,22 @@ const menuList: menuType[] = [
     ]
   },
   {
+    path: '/develop',
+    redirect: '/develop/home',
+    name: '开发',
+    meta: {
+      icon: () => h(TableOutlined)
+    },
+    children: [
+      {
+        path: '/develop/home',
+        name: '基础开发',
+        component: () => import('@/views/develop/index.vue'),
+        meta: {}
+      },
+    ]
+  },
+  {
     path: '/setting',
     redirect: '/setting',
     name: '设置',

@@ -11,7 +11,7 @@
 </style>
 <template>
   <div class="home">
-    <ComplexQuickList :list-data="mainData" :components="['spin', 'search', 'table', 'info', 'edit']" :simple-table="true" :components-props="componentsProps" />
+    <ComplexQuickList :list-data="mainData" :components="['spin', 'search', 'table', 'info', 'edit']" :simple-table="true" :float="floatData" :components-props="componentsProps" />
   </div>
 </template>
 
@@ -20,6 +20,7 @@ import { defineComponent } from 'vue';
 import mainData from './mainData';
 import { ComplexQuickList } from '@/modules/complex-component-antd';
 import { componentsProps } from '@/modules/complex-component-antd/quick/QuickList';
+import floatData from '@/config/data/floatData';
 
 export default defineComponent({
   name: 'HomeView',
@@ -28,6 +29,7 @@ export default defineComponent({
   },
   setup() {
     return {
+      floatData: floatData,
       mainData: mainData,
       componentsProps: {
         table: {
