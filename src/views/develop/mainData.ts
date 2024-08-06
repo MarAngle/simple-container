@@ -1,5 +1,5 @@
 import listApi, { listItemType } from "@/api/main/listApi"
-import { isFile } from "complex-utils"
+import { isFile, Life } from "complex-utils"
 import { ComplexList, SelectEdit, SelectValue } from "complex-data"
 import ButtonEdit from "complex-data/src/dictionary/ButtonEdit"
 import { fileDataType } from "complex-data/type"
@@ -24,6 +24,17 @@ const select = new SelectValue({
     },
   ]
 })
+
+const life = new Life()
+
+life.on('inside', {
+  handler(...args) {
+    console.log(this, ...args)
+  }
+})
+
+life.trigger('inside', 'args')
+
 
 const mainData = new ComplexList({
   prop: 'mainData',
