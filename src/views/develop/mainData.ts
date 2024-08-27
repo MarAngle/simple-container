@@ -39,7 +39,7 @@ life.trigger('inside', 'args')
 const mainData = new ComplexList({
   prop: 'mainData',
   module: {
-    choice: {},
+    // choice: {},
     search: {
       // collapse: false,
       menu: {
@@ -603,6 +603,132 @@ const mainData = new ComplexList({
                 }
               },
               type: 'form',
+              required: true,
+              option: {}
+            },
+            build: {
+              $redirect: 'edit'
+            },
+            change: {
+              $redirect: 'edit'
+            }
+          }
+        },
+        {
+          prop: 'list',
+          name: '内嵌列表',
+          assign(value) {
+            return value || [{
+              name: 'a',
+              date: '2019-05-18'
+            }]
+          },
+          collect(value) {
+            return value
+          },
+          dictionray: {
+            list: [
+              {
+                prop: '$index',
+                name: 'No',
+                mod: {
+                  info: {
+                    width: 50
+                  },
+                  build: {
+                    $redirect: 'info'
+                  },
+                  change: {
+                    $redirect: 'info'
+                  }
+                }
+              },
+              {
+                prop: 'name',
+                name: '名称',
+                collect(value) {
+                  console.log(value)
+                  return value
+                },
+                mod: {
+                  list: {
+                    width: 120
+                  },
+                  info: {
+                    $redirect: 'edit'
+                  },
+                  edit: {
+                    type: 'input',
+                    required: true
+                  },
+                  build: {
+                    $redirect: 'edit'
+                  },
+                  change: {
+                    $redirect: 'edit'
+                  }
+                }
+              },
+              {
+                prop: 'date',
+                name: '日期',
+                mod: {
+                  list: {
+                    width: 120
+                  },
+                  info: {
+                    $redirect: 'edit'
+                  },
+                  edit: {
+                    type: 'date',
+                    required: true,
+                    option: {
+                      disabledDate: {
+                        start: {
+                          value: 'today',
+                          eq: true
+                        },
+                        end: {
+                          value: 'tomorrow',
+                          eq: true
+                        }
+                      }
+                    }
+                  },
+                  build: {
+                    $redirect: 'edit'
+                  },
+                  change: {
+                    $redirect: 'edit'
+                  }
+                }
+              },
+              {
+                prop: '$delete',
+                name: '操作',
+                mod: {
+                  info: {
+                    width: 50
+                  },
+                  build: {
+                    $redirect: 'info'
+                  },
+                  change: {
+                    $redirect: 'info'
+                  }
+                }
+              },
+            ]
+          },
+          mod: {
+            list: {
+              width: 300
+            },
+            info: {
+              $redirect: 'edit'
+            },
+            edit: {
+              type: 'list',
               required: true,
               option: {}
             },

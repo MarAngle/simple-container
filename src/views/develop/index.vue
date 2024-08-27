@@ -53,6 +53,9 @@ export default defineComponent({
             ]
           }
         },
+        editModal: {
+          width: 960
+        },
         edit: {},
         // search: {
         //   collapse: true
