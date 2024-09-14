@@ -7,11 +7,12 @@
     "pre": "yarn install --registry https://registry.npmjs.org || yarn install --registry https://registry.yarnpkg.com || npm install --registry https://registry.npm.taobao.org",
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "tsc --noEmit"
   },
   "dependencies": {
     "ant-design-vue": "^4.2.3",
-    "complex-component-antd": "4.6.22 - 4.6.99",
+    "complex-component-antd": "4.6.23 - 4.6.99",
     "complex-data": "4.6.21 - 4.6.99",
     "complex-plugin": "4.6.1 - 4.6.99",
     "complex-request-axios": "0.5.5 - 0.5.99",

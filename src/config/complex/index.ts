@@ -4,7 +4,7 @@ import { NotificationArgsProps } from 'ant-design-vue/lib/notification'
 import { setEnv } from 'complex-utils'
 import { install } from 'complex-plugin'
 import { Data } from 'complex-data'
-import { noticeMsgType } from 'complex-plugin/src/notice'
+import { messageType } from 'complex-plugin/src/notice'
 import complexComponentAntd from '@/modules/complex-component-antd'
 import config from '@/modules/complex-component-antd/config'
 import pluginLayout from './pluginLayout'
@@ -28,14 +28,14 @@ export const initComplex = function(app: App) {
   })
   install({
     notice: {
-      showMsg: function (content: string, type: noticeMsgType = 'info', title = '通知', duration = 3) {
+      message: function (content: string, type: messageType = 'info', title = '通知', duration = 3) {
         this.setMsg({
           message: title,
           description: content,
           duration: duration
         }, type)
       },
-      setMsg: function (option: NotificationArgsProps, type: noticeMsgType = 'info') {
+      setMsg: function (option: NotificationArgsProps, type: messageType = 'info') {
         if (notification[type]) {
           notification[type](option)
         } else {

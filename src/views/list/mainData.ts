@@ -59,7 +59,7 @@ const mainData = new ComplexList({
             option: {
               type: 'default',
               name: '导入',
-              icon: 'upload',
+              icon: 'import',
               upload: () => {
                 return new Promise((resolve) => {
                   setTimeout(() => {
@@ -577,7 +577,7 @@ const mainData = new ComplexList({
             edit: {
               grid: {
                 line: 1,
-                custom(data, position, gridParse) {
+                custom(data, position, _gridParse) {
                   if (position === 'label') {
                     return {
                       span: 0
@@ -610,11 +610,10 @@ const mainData = new ComplexList({
   getData(this: ComplexList) {
     return new Promise((resolve, reject) => {
       const postData = { ...this.getSearch() } as any
-      console.log(postData)
       postData.page = this.getPage()
       postData.size = this.getPageSize()
       listApi.list.require(postData).then(res => {
-        // this.formatList(res.data.data.list, res.data.data.total)
+        this.formatList(res.data.data.list, res.data.data.total)
         resolve(res)
       }).catch(err => {
         console.log(err)
@@ -626,7 +625,6 @@ const mainData = new ComplexList({
     return new Promise((resolve, reject) => {
       console.log(targetData)
       listApi.build.require(targetData).then(res => {
-        console.log(res.data.data.id)
         this.reloadData(true)
         resolve(res)
       }).catch(err => {
@@ -638,9 +636,7 @@ const mainData = new ComplexList({
   changeData(this: ComplexList, targetData, originData) {
     return new Promise((resolve, reject) => {
       targetData.id = originData.id
-      console.log(targetData)
       listApi.change.require(targetData as listItemType).then(res => {
-        console.log(res.data.data)
         this.reloadData(true)
         resolve(res)
       }).catch(err => {

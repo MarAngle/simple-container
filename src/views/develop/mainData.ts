@@ -70,7 +70,7 @@ const mainData = new ComplexList({
             option: {
               type: 'default',
               name: '导入',
-              icon: 'upload',
+              icon: 'import',
               upload: () => {
                 return new Promise((resolve) => {
                   setTimeout(() => {
@@ -588,7 +588,7 @@ const mainData = new ComplexList({
             edit: {
               grid: {
                 line: 1,
-                custom(data, position, gridParse) {
+                custom(data, position, _gridParse) {
                   if (position === 'label') {
                     return {
                       span: 0
