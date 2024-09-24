@@ -13,6 +13,7 @@ setEnv(import.meta.env.VITE_APP_ENV)
 setEnv(import.meta.env.VITE_APP_ENV, 'real')
 
 config.search.inline = true
+// config.modal.destroyOnClose = false
 
 Data.$format = function(data, formatConfig) {
   if (formatConfig && formatConfig.recommend) {
