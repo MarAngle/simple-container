@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "ant-design-vue": "^4.2.3",
-    "complex-component-antd": "4.6.25 - 4.6.99",
-    "complex-data": "4.6.22 - 4.6.99",
+    "complex-component-antd": "4.6.27 - 4.6.99",
+    "complex-data": "4.6.23 - 4.6.99",
     "complex-plugin": "4.6.1 - 4.6.99",
     "complex-request-axios": "0.5.7 - 0.5.99",
     "complex-utils": "2.6.3 - 2.6.99",

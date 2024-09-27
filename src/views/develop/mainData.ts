@@ -304,6 +304,7 @@ const mainData = new ComplexList({
               type: 'select',
               cascader: undefined,
               required: true,
+              multiple: true,
               select: select,
               pagination: {},
               getData(this: any) {
