@@ -1,7 +1,7 @@
 import { App, reactive } from 'vue'
 import { Modal, ModalProps, notification } from 'ant-design-vue'
 import { NotificationArgsProps } from 'ant-design-vue/lib/notification'
-import { setEnv } from 'complex-utils'
+import { getEnv, setEnv } from 'complex-utils'
 import { install } from 'complex-plugin'
 import { Data } from 'complex-data'
 import { messageType } from 'complex-plugin/src/notice'
@@ -9,8 +9,8 @@ import complexComponentAntd from '@/modules/complex-component-antd'
 import config from '@/modules/complex-component-antd/config'
 import pluginLayout from './pluginLayout'
 
-setEnv(import.meta.env.VITE_APP_ENV)
-setEnv(import.meta.env.VITE_APP_ENV, 'real')
+setEnv('data', import.meta.env.VITE_APP_ENV)
+setEnv('real', import.meta.env.VITE_APP_ENV)
 
 config.search.inline = true
 // config.modal.destroyOnClose = false
@@ -77,6 +77,9 @@ export const initComplex = function(app: App) {
             close()
           }
         }, 'confirm')
+      },
+      debugConfirm(option) {
+        this.$debugConfirm(getEnv('real') === 'development', (getEnv('debug') || 0) as number, option)
       },
       setModal: function (option: ModalProps, type = 'info') {
         if (Modal[type]) {

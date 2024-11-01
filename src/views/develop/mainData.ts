@@ -39,7 +39,10 @@ life.trigger('inside', 'args')
 const mainData = new ComplexList({
   prop: 'mainData',
   module: {
-    // choice: {},
+    choice: {},
+    sort: {
+      prop: ['id', 'input']
+    },
     search: {
       // collapse: false,
       menu: {
@@ -748,7 +751,7 @@ const mainData = new ComplexList({
   getData(this: ComplexList) {
     return new Promise((resolve, reject) => {
       const postData = { ...this.getSearch() } as any
-      console.log(postData)
+      console.log(postData, this.$module.sort?.getData())
       postData.page = this.getPage()
       postData.size = this.getPageSize()
       listApi.list.require(postData).then(res => {
