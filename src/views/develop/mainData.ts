@@ -39,10 +39,10 @@ life.trigger('inside', 'args')
 const mainData = new ComplexList({
   prop: 'mainData',
   module: {
-    choice: {},
-    sort: {
-      prop: ['id', 'input']
-    },
+    // choice: {},
+    // sort: {
+    //   prop: ['id', 'input']
+    // },
     search: {
       // collapse: false,
       menu: {
@@ -755,7 +755,7 @@ const mainData = new ComplexList({
       postData.page = this.getPage()
       postData.size = this.getPageSize()
       listApi.list.require(postData).then(res => {
-        this.formatList(res.data.data.list, res.data.data.total)
+        // this.formatList(res.data.data.list, res.data.data.total)
         resolve(res)
       }).catch(err => {
         console.log(err)

@@ -613,7 +613,7 @@ const mainData = new ComplexList({
       postData.page = this.getPage()
       postData.size = this.getPageSize()
       listApi.list.require(postData).then(res => {
-        this.formatList(res.data.data.list, res.data.data.total)
+        // this.formatList(res.data.data.list, res.data.data.total)
         resolve(res)
       }).catch(err => {
         console.log(err)
