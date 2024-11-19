@@ -11,25 +11,44 @@
 </style>
 <template>
   <div class="home">
-    <ComplexQuickList :list-data="mainData" :components="['spin', 'search', 'table', 'info', 'edit']" :simple-table="true" :float="floatData" :components-props="componentsProps" />
+    <ComplexQuickCascade
+      :list="{
+        listData: mainData,
+        components: ['spin', 'search', 'table', 'info', 'edit'],
+        simpleTable: true,
+        componentsProps: componentsProps
+      }"
+      :sublist="{
+        name: '子列表',
+        show(payload) {
+          console.log(payload)
+          childData.reloadData(true)
+        },
+        props: {
+          listData: childData
+        }
+      }"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import mainData from './mainData';
-import { ComplexQuickList } from '@/modules/complex-component-antd';
+import childData from './childData';
+import { ComplexQuickCascade } from '@/modules/complex-component-antd';
 import { componentsProps } from '@/modules/complex-component-antd/quick/QuickList';
 import floatData from '@/config/data/floatData';
 
 export default defineComponent({
   name: 'HomeView',
   components: {
-    ComplexQuickList
+    ComplexQuickCascade
   },
   setup() {
     return {
       floatData: floatData,
+      childData: childData,
       mainData: mainData,
       componentsProps: {
         table: {
@@ -50,10 +69,16 @@ export default defineComponent({
                 name: '详情',
                 color: 'link'
               },
+              {
+                prop: '$sublist',
+                name: '子列表',
+                color: 'link'
+              },
             ]
           }
         },
         editModal: {
+          float: floatData,
           width: 960
         },
         edit: {},

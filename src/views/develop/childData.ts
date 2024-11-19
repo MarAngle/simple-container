@@ -194,7 +194,7 @@ const mainData = new ComplexList({
           originFrom: 'local',
           mod: {
             list: {
-              width: 200
+              width: 140
             }
           }
         },
@@ -307,7 +307,7 @@ const mainData = new ComplexList({
               type: 'select',
               cascader: undefined,
               required: true,
-              // multiple: true,
+              multiple: true,
               select: select,
               pagination: {},
               getData(this: any) {
@@ -751,7 +751,7 @@ const mainData = new ComplexList({
   getData(this: ComplexList) {
     return new Promise((resolve, reject) => {
       const postData = { ...this.getSearch() } as any
-      console.log(postData, this.$module.sort?.getData())
+      console.log('child')
       postData.page = this.getPage()
       postData.size = this.getPageSize()
       listApi.list.require(postData).then(res => {
